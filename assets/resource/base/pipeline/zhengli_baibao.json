@@ -1,0 +1,31 @@
+{
+    "zhengli_baibao": {
+        "action": "Key",
+        "key": [
+            57,
+            33
+        ],
+        "next": [
+            "点击整理"
+        ]
+    },
+    "点击整理": {
+        "recognition": "OCR",
+        "expected": [
+            "整理"
+        ],
+        "roi": [
+            873,
+            609,
+            241,
+            77
+        ],
+        "next": [
+            "hongluogeng"
+        ]
+    },
+    "hongluogeng": {
+        "recognition": "TemplateMatch",
+        "template": "beibao/honghuogeng.png"
+    }
+}

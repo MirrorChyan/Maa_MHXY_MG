@@ -1,0 +1,77 @@
+{
+    "shimen_renwu": {
+        "action": "Key",
+        "key": [
+            57,
+            31
+        ],
+        "next": [
+            "huodong_shimen"
+        ]
+    },
+    "huodong_shimen": {
+        "recognition": "TemplateMatch",
+        "template": "shimen/huodong_shimen.png",
+        "next": [
+            "canjia"
+        ]
+    },
+    "canjia": {
+        "recognition": "OCR",
+        "expected": [
+            "参加"
+        ],
+        "roi": "huodong_shimen",
+        "action": "Click",
+        "next": [
+            "quwancheng"
+        ]
+    },
+    "quwancheng": {
+        "recognition": "OCR",
+        "expected": [
+            "去完成"
+        ],
+        "action": "Click",
+        "next": [
+            "shimenwanchengqueding",
+            "issub_sleep"
+        ]
+    },
+    "shimenwanchengqueding": {
+        "recognition": "TemplateMatch",
+        "template": "shimen/shimenwancheng2.png",
+        "roi": [
+            442,
+            187,
+            412,
+            109
+        ],
+        "action": "Key",
+        "key": 111,
+        "next": [
+            "shimenjiangli"
+        ]
+    },
+    "shimenjiangli": {
+        "recognition": "TemplateMatch",
+        "template": "shimen/shimenjiangli.png",
+        "action": "Click",
+        "next": [
+            "returnmain"
+        ]
+    },
+    "issub_sleep": {
+        "is_sub": true,
+        "pre_delay": 2000,
+        "recognition": "TemplateMatch",
+        "template": "shimen/shimenwancheng2.png",
+        "roi": [
+            442,
+            187,
+            412,
+            109
+        ],
+        "post_wait_freezes": 5000
+    }
+}

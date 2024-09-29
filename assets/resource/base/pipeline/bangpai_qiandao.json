@@ -1,0 +1,93 @@
+{
+    "bangpai_qiandao": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/jiahao.png",
+        "roi": [
+            1214,
+            644,
+            54,
+            52
+        ],
+        "action": "Click",
+        "next": [
+            "baipai"
+        ]
+    },
+    "baipai": {
+        "recognition": "TemplateMatch",
+        "template": "qiandao/bangpai.png",
+        "roi": [
+            807,
+            631,
+            69,
+            57
+        ],
+        "action": "Click",
+        "next": [
+            "bangpaifuli"
+        ]
+    },
+    "bangpaifuli": {
+        "recognition": "TemplateMatch",
+        "template": "qiandao/bangpaifuli.png",
+        "roi": [
+            1115,
+            409,
+            73,
+            106
+        ],
+        "action": "Click",
+        "next": [
+            "BangPaiFuLiQianDao"
+        ]
+    },
+    "BangPaiFuLiQianDao": {
+        "recognition": "OCR",
+        "expected": [
+            "签到"
+        ],
+        "roi": [
+            882,
+            461,
+            195,
+            63
+        ],
+        "action": "Click",
+        "next": [
+            "BangPaiFuLiFenHong",
+            "returnmain"
+        ]
+    },
+    "BangPaiFuLiFenHong": {
+        "recognition": "OCR",
+        "expected": [
+            "领取分红"
+        ],
+        "roi": [
+            880,
+            609,
+            189,
+            61
+        ],
+        "action": "Click",
+        "next": [
+            "BangPaiFuLiFenHongLingQu"
+        ]
+    },
+    "BangPaiFuLiFenHongLingQu": {
+        "recognition": "OCR",
+        "expected": [
+            "领取"
+        ],
+        "roi": [
+            517,
+            544,
+            237,
+            64
+        ],
+        "action": "Click",
+        "next": [
+            "returnmain"
+        ]
+    }
+}

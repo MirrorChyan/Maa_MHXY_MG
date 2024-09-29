@@ -1,3 +1,37 @@
+# MAA_MHXY_MG
+
+简介：[MaaFramework](https://github.com/MaaXYZ/MaaFramework)梦幻西游手游助手
+
+## 功能介绍
+
+### 已完成
+    1.日常签到
+    2.帮派签到
+    3.师门任务
+### 待完成
+    1.其他日常任务（秘境，宝图，运镖等）
+    2.副本任务（320，520）
+    3.背包
+
+## 使用说明
+    1.下载对应版本 X86，arm
+    2.解压后运行 `MaaPiCli.exe` 即可
+    3.MUMU模拟器12，1280*720
+
+## 鸣谢
+
+本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！
+
+感谢以下开发者对本项目作出的贡献:
+
+<a href="https://github.com/MaaXYZ/M9A/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=MaaXYZ/M9A&max=1000" />
+</a>
+
+# 如需二次开发
+
+    请参考[MaaPracticeBoilerplate](https://github.com/MaaXYZ/MaaPracticeBoilerplate),对本项目进行完善
+
 # MaaPracticeBoilerplate
 
 MaaFramework 实践模板。

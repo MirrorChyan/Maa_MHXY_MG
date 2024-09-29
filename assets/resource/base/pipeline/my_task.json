@@ -1,5 +1,54 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
+    "MyTask1": {
+        "recognition": "OCR",
+        "expected": "存储",
+        "action": "Click"
+    },
+    "huadongcs": {
+        "action": "Swipe",
+        "begin": [
+            900,
+            500,
+            10,
+            10
+        ],
+        "end": [
+            900,
+            100,
+            10,
+            10
+        ]
+    },
+    "startgame": {
+        "next": [
+            "dashaochu"
+        ]
+    },
+    "dashaochu": {
+        "recognition": "OCR",
+        "expected": [
+            "大扫除"
+        ],
+        "roi": [
+            940,
+            431,
+            287,
+            62
+        ],
+        "action": "Click"
+    },
+    "returnmain": {
+        "pre_delay": 500,
+        "action": "Key",
+        "key": 111
+    },
+    "returnmain1": {
+        "pre_delay": 500,
+        "action": "Key",
+        "key": [
+            111,
+            111
+        ]
+    },
     "MyTask3": {}
 }

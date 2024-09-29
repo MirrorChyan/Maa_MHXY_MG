@@ -3,15 +3,6 @@
         {
             "name": "安卓端",
             "type": "Adb"
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "method": "Search",
-                "class_name": ".*",
-                "window_name": "Visual Studio"
-            }
         }
     ],
     "resource": [
@@ -19,13 +10,6 @@
             "name": "官服",
             "path": [
                 "{PROJECT_DIR}/resource/base"
-            ]
-        },
-        {
-            "name": "B 服",
-            "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/bilibili"
             ]
         }
     ],
@@ -35,41 +19,28 @@
             "entry": "MyTask1"
         },
         {
-            "name": "选项任务",
-            "entry": "MyTask2",
-            "option": [
-                "任务选项1"
-            ]
+            "name": "启动游戏",
+            "entry": "startgame"
         },
         {
-            "name": "参数任务",
-            "entry": "MyTask3",
-            "option": [
-                "任务选项1"
-            ],
-            "param": {}
+            "name": "帮派签到(已完成)",
+            "entry": "bangpai_qiandao"
+        },
+        {
+            "name": "整理背包",
+            "entry": "zhengli_baibao"
+        },
+        {
+            "name": "福利签到(已完成)",
+            "entry": "fuli_qiandao"
+        },
+        {
+            "name": "师门任务",
+            "entry": "shimen_renwu"
+        },
+        {
+            "name": "师门任务2(已完成)",
+            "entry": "shimen_renwu2"
         }
-    ],
-    "option": {
-        "任务选项1": {
-            "cases": [
-                {
-                    "name": "文本1",
-                    "param": {
-                        "OcrTask": {
-                            "text": "文本1"
-                        }
-                    }
-                },
-                {
-                    "name": "文本2",
-                    "param": {
-                        "OcrTask": {
-                            "text": "文本2"
-                        }
-                    }
-                }
-            ]
-        }
-    }
+    ]
 }
