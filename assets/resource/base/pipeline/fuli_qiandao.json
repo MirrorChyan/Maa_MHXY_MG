@@ -146,7 +146,6 @@
         ]
     },
     "click_fuli_leiji1": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "template": "qiandao/leiji2.png",
         "roi": [

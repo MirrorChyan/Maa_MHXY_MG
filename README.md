@@ -8,15 +8,16 @@
     1.日常签到
     2.帮派签到
     3.师门任务
+    4.秘境任务
 ### 待完成
-    1.其他日常任务（秘境，宝图，运镖等）
+    1.其他日常任务（宝图，运镖等）
     2.副本任务（320，520）
     3.背包
 
 ## 使用说明
     1.下载对应版本 X86，arm
-    2.解压后运行 `MaaPiCli.exe` 即可
-    3.MUMU模拟器12，1280*720
+    2.解压后运行 `MaaPiCli.exe` 即可（有机会补充详细手册）
+    3.MUMU模拟器12，1280*720 240dpi
 
 ## 鸣谢
 
@@ -24,9 +25,9 @@
 
 感谢以下开发者对本项目作出的贡献:
 
-<a href="https://github.com/MaaXYZ/M9A/graphs/contributors">
+<!-- <a href="https://github.com/MaaXYZ/M9A/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=MaaXYZ/M9A&max=1000" />
-</a>
+</a> -->
 
 # 如需二次开发
 

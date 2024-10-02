@@ -41,6 +41,10 @@
         {
             "name": "师门任务2(已完成)",
             "entry": "shimen_renwu2"
+        },
+        {
+            "name": "秘境降妖",
+            "entry": "mijing_renwu"
         }
     ]
 }

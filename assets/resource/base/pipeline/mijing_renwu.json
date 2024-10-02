@@ -1,0 +1,244 @@
+{
+    "mijing_renwu": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zonghe/chenghao.png",
+            "zonghe/jiahao.png"
+        ],
+        "roi": [
+            1206,
+            637,
+            66,
+            57
+        ],
+        "next": [
+            "dakai_map"
+        ]
+    },
+    "dakai_map": {
+        "pre_wait_freezes": 500,
+        "action": "Key",
+        "key": [
+            57,
+            41
+        ],
+        "next": [
+            "chuansong_donghaiwan"
+        ]
+    },
+    "chuansong_donghaiwan": {
+        "recognition": "TemplateMatch",
+        "template": "mijing/ditu_donghaiwan.png",
+        "action": "Click",
+        "next": [
+            "click_tab_mijing"
+        ]
+    },
+    "click_tab_mijing": {
+        "pre_wait_freezes": 500,
+        "action": "Key",
+        "key": [
+            61
+        ],
+        "next": [
+            "click_map_yunleyou"
+        ]
+    },
+    "click_map_yunleyou": {
+        "recognition": "OCR",
+        "expected": [
+            "云乐游"
+        ],
+        "roi": [
+            500,
+            382,
+            89,
+            37
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "mijingxiangyao"
+        ]
+    },
+    "mijingxiangyao": {
+        "recognition": "OCR",
+        "expected": [
+            "秘境降妖"
+        ],
+        "roi": [
+            940,
+            222,
+            281,
+            67
+        ],
+        "action": "Click",
+        "next": [
+            "xuanze_mijing_moshi",
+            "jixutiaozhan"
+        ]
+    },
+    "xuanze_mijing_moshi": {
+        "recognition": "TemplateMatch",
+        "template": "mijing/mijing_moshi.png",
+        "roi": [
+            231,
+            85,
+            774,
+            106
+        ],
+        "next": [
+            "click_haidimijing"
+        ]
+    },
+    "click_haidimijing": {
+        "recognition": "OCR",
+        "expected": [
+            "进入"
+        ],
+        "roi": [
+            311,
+            610,
+            137,
+            44
+        ],
+        "action": "Click",
+        "next": [
+            "click_haidimijing_queding"
+        ]
+    },
+    "click_haidimijing_queding": {
+        "recognition": "TemplateMatch",
+        "template": "mijing/moshi_queding.png",
+        "roi": [
+            671,
+            405,
+            149,
+            59
+        ],
+        "action": "Click",
+        "next": [
+            "jixutiaozhan"
+        ]
+    },
+    "jixutiaozhan": {
+        "recognition": "OCR",
+        "expected": [
+            "挑战"
+        ],
+        "roi": [
+            1000,
+            589,
+            73,
+            66
+        ],
+        "action": "Click",
+        "next": [
+            "mijing_zhandou",
+            "mijing_tongguan",
+            "mijing_shibai",
+            "issub_sleep_mijing"
+        ]
+    },
+    "kk": {
+        "next": [
+            "mijing_zhandou",
+            "mijing_tongguan",
+            "mijing_shibai",
+            "issub_sleep_mijing"
+        ]
+    },
+    "mijing_zhandou": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "第1关",
+            "第2关",
+            "第3关",
+            "第4关",
+            "第5关",
+            "第6关",
+            "第7关",
+            "第8关",
+            "第9关",
+            "第10关",
+            "第11关",
+            "第12关",
+            "第13关",
+            "第14关",
+            "第15关",
+            "第16关",
+            "第17关",
+            "第18关",
+            "第19关",
+            "第20关",
+            "第21关",
+            "第22关",
+            "第23关",
+            "第24关",
+            "第25关",
+            "第26关",
+            "第27关",
+            "第28关",
+            "第29关",
+            "第30关"
+        ],
+        "action": "Click",
+        "roi": [
+            1014,
+            209,
+            101,
+            109
+        ],
+        "next": [
+            "mijing_zhandou_queren"
+        ]
+    },
+    "mijing_zhandou_queren": {
+        "recognition": "OCR",
+        "expected": [
+            "进入战斗"
+        ],
+        "roi": [
+            939,
+            366,
+            285,
+            63
+        ],
+        "action": "Click"
+    },
+    "mijing_tongguan": {
+        "recognition": "OCR",
+        "expected": [
+            "通关"
+        ],
+        "roi": [
+            1014,
+            260,
+            122,
+            56
+        ]
+    },
+    "mijing_shibai": {
+        "recognition": "TemplateMatch",
+        "template": "mijing/mijing_shibai.png",
+        "roi": [
+            304,
+            130,
+            654,
+            275
+        ],
+        "next": [
+            "tuichu_shibeijiemian"
+        ]
+    },
+    "tuichu_shibeijiemian": {
+        "action": "Key",
+        "key": 111
+    },
+    "issub_sleep_mijing": {
+        "is_sub": true,
+        "pre_delay": 2000,
+        "post_wait_freezes": 5000
+    }
+}

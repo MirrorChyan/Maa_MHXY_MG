@@ -20,9 +20,25 @@
         ]
     },
     "startgame": {
+        "action": "StartApp",
+        "package": "com.netease.my.uc",
         "next": [
-            "dashaochu"
+            "dengluyouxi"
         ]
+    },
+    "dengluyouxi": {
+        "pre_wait_freezes": 3000,
+        "recognition": "OCR",
+        "expected": [
+            "登录游戏"
+        ],
+        "roi": [
+            537,
+            501,
+            192,
+            46
+        ],
+        "action": "Click"
     },
     "dashaochu": {
         "recognition": "OCR",
@@ -50,5 +66,44 @@
             111
         ]
     },
+    "zhujiemian_moban": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zonghe/chenghao.png",
+            "zonghe/jiahao.png"
+        ],
+        "roi": [
+            1206,
+            637,
+            66,
+            57
+        ],
+        "action": "Click"
+    },
+    "panduan_zhujiemian": {
+        "next": [
+            "panduan_zhujiemian_ks",
+            "zai_zhujiemian"
+        ]
+    },
+    "panduan_zhujiemian_ks": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "template": [
+            "zonghe/jiahao.png",
+            "zonghe/chenghao.png",
+            "zonghe/baoguo.png"
+        ],
+        "roi": [
+            1197,
+            540,
+            78,
+            157
+        ],
+        "inverse": true,
+        "action": "Key",
+        "key": 111
+    },
+    "zai_zhujiemian": {},
     "MyTask3": {}
 }
