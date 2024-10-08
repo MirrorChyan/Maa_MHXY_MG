@@ -104,6 +104,42 @@
         "action": "Key",
         "key": 111
     },
+    "huodong_zhedang_guanbi": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/shouye_huodong_zedang.png",
+        "roi": [
+            1048,
+            51,
+            66,
+            64
+        ],
+        "action": "Click"
+    },
+    "关闭三界热点": {
+        "recognition": "OCR",
+        "expected": [
+            "点击下方空白处关闭界面",
+            "点击下万空白处关闭界面"
+        ],
+        "roi": [
+            472,
+            666,
+            332,
+            38
+        ],
+        "action": "Click"
+    },
     "zai_zhujiemian": {},
-    "MyTask3": {}
+    "MyTask3": {},
+    "zhankairenwulan": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/rwl_suojin.png",
+        "roi": [
+            1203,
+            109,
+            77,
+            71
+        ],
+        "action": "Click"
+    }
 }

@@ -1,0 +1,156 @@
+{
+    "baotu_renwu": {
+        "next": [
+            "dakai_map_baotu",
+            "panduan_zhujiemian"
+        ]
+    },
+    "dakai_map_baotu": {
+        "action": "Key",
+        "key": [
+            57,
+            41
+        ],
+        "next": [
+            "to_changancheng_baotu"
+        ]
+    },
+    "to_changancheng_baotu": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/tab_changancheng.png",
+        "roi": [
+            531,
+            399,
+            152,
+            57
+        ],
+        "action": "Click",
+        "next": [
+            "to_changancheng_dianxiaoer"
+        ]
+    },
+    "to_changancheng_dianxiaoer": {
+        "action": "Key",
+        "key": 61,
+        "next": [
+            "click_tab_dxe"
+        ]
+    },
+    "click_tab_dxe": {
+        "recognition": "TemplateMatch",
+        "template": "baotu/tab_dxe.png",
+        "action": "Click",
+        "roi": [
+            738,
+            359,
+            100,
+            42
+        ],
+        "next": [
+            "click_baotu_ttwf"
+        ]
+    },
+    "click_baotu_ttwf": {
+        "pre_delay": 4000,
+        "pre_wait_freezes": 4000,
+        "recognition": "OCR",
+        "expected": [
+            "听听无妨"
+        ],
+        "roi": [
+            931,
+            278,
+            302,
+            218
+        ],
+        "action": "Click",
+        "next": [
+            "baotu_huadong_down",
+            "zhankairenwulan"
+        ]
+    },
+    "baotu_k1": {
+        "next": [
+            "baotu_huadong_down",
+            "zhankairenwulan"
+        ]
+    },
+    "baotu_huadong_down": {
+        "action": "Swipe",
+        "begin": [
+            1145,
+            234,
+            1,
+            1
+        ],
+        "end": [
+            1149,
+            419,
+            1,
+            1
+        ],
+        "next": [
+            "kaishi_datu"
+        ]
+    },
+    "kaishi_datu": {
+        "recognition": "OCR",
+        "expected": [
+            "宝图任务"
+        ],
+        "roi": [
+            1034,
+            171,
+            235,
+            336
+        ],
+        "action": "Click",
+        "next": [
+            "baotu_renwu_sleep"
+        ]
+    },
+    "baotu_renwu_sleep": {
+        "pre_delay": 600000,
+        "next": [
+            "open_huodong_bt"
+        ]
+    },
+    "open_huodong_bt": {
+        "action": "Key",
+        "key": [
+            57,
+            31
+        ],
+        "next": [
+            "baotu_wancheng"
+        ],
+        "interrupt": [
+            "baotu_huodong_down"
+        ]
+    },
+    "baotu_wancheng": {
+        "recognition": "TemplateMatch",
+        "template": "baotu/hd_baotu_wancheng.png",
+        "roi": [
+            312,
+            82,
+            828,
+            430
+        ]
+    },
+    "baotu_huodong_down": {
+        "action": "Swipe",
+        "begin": [
+            733,
+            380,
+            1,
+            1
+        ],
+        "end": [
+            735,
+            250,
+            1,
+            1
+        ]
+    }
+}

@@ -43,8 +43,12 @@
             "entry": "shimen_renwu2"
         },
         {
-            "name": "秘境降妖",
+            "name": "秘境降妖（已完成）",
             "entry": "mijing_renwu"
+        },
+        {
+            "name": "宝图任务(已完成)",
+            "entry": "baotu_renwu"
         }
     ]
 }
