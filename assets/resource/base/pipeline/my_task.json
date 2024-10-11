@@ -141,5 +141,19 @@
             71
         ],
         "action": "Click"
+    },
+    "战斗中-等待10秒": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zhandou/zidong.png",
+            "zhandou/quxiao.png"
+        ],
+        "roi": [
+            1175,
+            549,
+            103,
+            159
+        ],
+        "pre_wait_freezes": 100000
     }
 }

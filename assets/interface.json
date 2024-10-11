@@ -27,7 +27,7 @@
             "entry": "bangpai_qiandao"
         },
         {
-            "name": "整理背包",
+            "name": "整理背包（已完成）",
             "entry": "zhengli_baibao"
         },
         {
@@ -49,6 +49,14 @@
         {
             "name": "宝图任务(已完成)",
             "entry": "baotu_renwu"
+        },
+        {
+            "name": "挖宝图(已完成)",
+            "entry": "wabaotu"
+        },
+        {
+            "name": "运镖普通(已完成)",
+            "entry": "yunbiao_renwu"
         }
     ]
 }

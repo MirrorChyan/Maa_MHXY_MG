@@ -20,12 +20,221 @@
             241,
             77
         ],
+        "action": "Click",
         "next": [
-            "hongluogeng"
+            "整理完成"
+        ],
+        "interrupt": [
+            "使用红罗羹",
+            "使用绿芦羹",
+            "使用心魔宝珠",
+            "出售百炼精铁",
+            "合成阵法",
+            "出售阵法",
+            "背包向上滑动1"
         ]
     },
-    "hongluogeng": {
+    "使用红罗羹": {
+        "post_delay": 200,
         "recognition": "TemplateMatch",
-        "template": "beibao/honghuogeng.png"
+        "template": "beibao/hongluogeng.png",
+        "action": "Click",
+        "next": [
+            "点击更多"
+        ]
+    },
+    "使用绿芦羹": {
+        "post_delay": 200,
+        "recognition": "TemplateMatch",
+        "template": "beibao/lvlugeng.png",
+        "action": "Click",
+        "next": [
+            "点击更多"
+        ]
+    },
+    "使用心魔宝珠": {
+        "post_delay": 200,
+        "recognition": "TemplateMatch",
+        "template": "beibao/xinmobaozhu.png",
+        "action": "Click",
+        "next": [
+            "点击批量使用_心魔宝珠"
+        ]
+    },
+    "点击更多": {
+        "recognition": "OCR",
+        "expected": [
+            "更多"
+        ],
+        "roi": [
+            242,
+            426,
+            173,
+            74
+        ],
+        "action": "Click",
+        "next": [
+            "点击批量使用"
+        ]
+    },
+    "点击批量使用": {
+        "recognition": "OCR",
+        "expected": [
+            "批量使用"
+        ],
+        "roi": [
+            258,
+            381,
+            133,
+            37
+        ],
+        "action": "Click",
+        "next": [
+            "使用"
+        ]
+    },
+    "使用": {
+        "recognition": "OCR",
+        "expected": [
+            "使用"
+        ],
+        "roi": [
+            533,
+            455,
+            213,
+            73
+        ],
+        "action": "Click",
+        "post_delay": 500
+    },
+    "点击批量使用_心魔宝珠": {
+        "recognition": "OCR",
+        "expected": [
+            "批量使用"
+        ],
+        "roi": [
+            423,
+            429,
+            169,
+            80
+        ],
+        "action": "Click",
+        "post_delay": 500
+    },
+    "背包向上滑动1": {
+        "action": "Swipe",
+        "begin": [
+            907,
+            462,
+            1,
+            1
+        ],
+        "end": [
+            907,
+            363,
+            1,
+            1
+        ]
+    },
+    "出售百炼精铁": {
+        "post_delay": 200,
+        "recognition": "TemplateMatch",
+        "template": "beibao/bailianjingtie.png",
+        "action": "Click",
+        "next": [
+            "点击商会出售"
+        ]
+    },
+    "出售阵法": {
+        "post_delay": 200,
+        "recognition": "TemplateMatch",
+        "template": "beibao/zhenfa.png",
+        "action": "Click",
+        "next": [
+            "点击商会出售"
+        ]
+    },
+    "点击商会出售": {
+        "recognition": "OCR",
+        "expected": [
+            "商会出售"
+        ],
+        "roi": [
+            246,
+            410,
+            171,
+            79
+        ],
+        "action": "Click",
+        "next": [
+            "点击商会出售——满"
+        ]
+    },
+    "点击商会出售——满": {
+        "recognition": "OCR",
+        "expected": [
+            "满"
+        ],
+        "roi": [
+            740,
+            364,
+            75,
+            68
+        ],
+        "action": "Click",
+        "next": [
+            "点击商会出售——满——出售"
+        ]
+    },
+    "点击商会出售——满——出售": {
+        "recognition": "OCR",
+        "expected": [
+            "出售"
+        ],
+        "roi": [
+            524,
+            529,
+            234,
+            68
+        ],
+        "action": "Click",
+        "post_delay": 500
+    },
+    "合成阵法": {
+        "post_delay": 200,
+        "recognition": "TemplateMatch",
+        "template": "zhenfajuan.png",
+        "action": "Click",
+        "next": [
+            "点击阵法使用"
+        ]
+    },
+    "点击阵法使用": {
+        "recognition": "OCR",
+        "expected": [
+            "使用"
+        ],
+        "roi": [
+            424,
+            419,
+            161,
+            62
+        ],
+        "action": "Click",
+        "post_delay": 500
+    },
+    "整理完成": {
+        "recognition": "TemplateMatch",
+        "template": "beibao/beibao_konggezi.png",
+        "roi": [
+            995,
+            557,
+            107,
+            69
+        ],
+        "threshold": 0.85,
+        "pre_wait_freezes": 200,
+        "action": "Key",
+        "key": 111
     }
 }

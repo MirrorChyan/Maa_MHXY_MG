@@ -1,0 +1,94 @@
+{
+    "wabaotu": {
+        "action": "Key",
+        "key": [
+            57,
+            33
+        ],
+        "next": [
+            "点击藏宝图"
+        ],
+        "interrupt": [
+            "背包向上滑动1"
+        ]
+    },
+    "点击藏宝图": {
+        "recognition": "TemplateMatch",
+        "template": "baotu/cangbaotu.png",
+        "roi": [
+            632,
+            140,
+            473,
+            484
+        ],
+        "action": "Click",
+        "next": [
+            "藏宝图-背包使用"
+        ]
+    },
+    "藏宝图-背包使用": {
+        "recognition": "OCR",
+        "expected": [
+            "使用"
+        ],
+        "roi": [
+            425,
+            418,
+            159,
+            63
+        ],
+        "action": "Click",
+        "next": [
+            "藏宝图-主界面使用"
+        ],
+        "interrupt": [
+            "战斗中-等待10秒"
+        ],
+        "on_error": [
+            "挖宝图完成判断"
+        ]
+    },
+    "藏宝图-主界面使用": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "使用"
+        ],
+        "roi": [
+            1013,
+            536,
+            157,
+            73
+        ],
+        "action": "Click",
+        "post_wait_freezes": 5000
+    },
+    "挖宝图完成判断": {
+        "pre_wait_freezes": 200,
+        "action": "Key",
+        "key": [
+            57,
+            33
+        ],
+        "next": [
+            "点击藏宝图",
+            "挖宝图完成"
+        ],
+        "interrupt": [
+            "背包向上滑动1"
+        ]
+    },
+    "挖宝图完成": {
+        "recognition": "TemplateMatch",
+        "template": "beibao/beibao_konggezi.png",
+        "roi": [
+            995,
+            557,
+            107,
+            69
+        ],
+        "pre_wait_freezes": 200,
+        "action": "Key",
+        "key": 111
+    }
+}

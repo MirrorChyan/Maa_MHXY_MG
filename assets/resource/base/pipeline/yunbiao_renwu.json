@@ -1,0 +1,92 @@
+{
+    "yunbiao_renwu": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zonghe/chenghao.png",
+            "zonghe/jiahao.png"
+        ],
+        "roi": [
+            1206,
+            637,
+            66,
+            57
+        ],
+        "next": [
+            "打开大地图_运镖"
+        ],
+        "interrupt": [
+            "panduan_zhujiemian"
+        ]
+    },
+    "打开大地图_运镖": {
+        "pre_wait_freezes": 500,
+        "action": "Key",
+        "key": [
+            57,
+            41
+        ],
+        "next": [
+            "传送长安城_运镖"
+        ]
+    },
+    "传送长安城_运镖": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/tab_changancheng.png",
+        "action": "Click",
+        "next": [
+            "打开小地图"
+        ]
+    },
+    "打开小地图": {
+        "action": "Key",
+        "key": 61,
+        "next": [
+            "点击郑镖头"
+        ]
+    },
+    "点击郑镖头": {
+        "recognition": "OCR",
+        "expected": [
+            "郑镖头"
+        ],
+        "roi": [
+            226,
+            399,
+            105,
+            52
+        ],
+        "action": "Click",
+        "post_wait_freezes": 6000,
+        "next": [
+            "押送普通镖"
+        ]
+    },
+    "押送普通镖": {
+        "recognition": "OCR",
+        "expected": [
+            "押送普通镖银"
+        ],
+        "action": "Click",
+        "next": [
+            "运镖活跃度不够",
+            "押送普通镖_确认"
+        ]
+    },
+    "运镖活跃度不够": {
+        "template": "yunbiao/yunbiao_hydbg50.png",
+        "roi": [
+            406,
+            281,
+            466,
+            195
+        ],
+        "action": "Key",
+        "key": 111
+    },
+    "押送普通镖_确认": {
+        "recognition": "OCR",
+        "expected": [
+            "确认"
+        ]
+    }
+}
