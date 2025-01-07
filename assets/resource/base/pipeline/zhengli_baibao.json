@@ -29,7 +29,6 @@
             "使用绿芦羹",
             "使用心魔宝珠",
             "出售百炼精铁",
-            "合成阵法",
             "出售阵法",
             "背包向上滑动1"
         ]
@@ -198,13 +197,24 @@
             68
         ],
         "action": "Click",
-        "post_delay": 500
+        "post_delay": 1000
     },
     "合成阵法": {
         "post_delay": 200,
         "recognition": "TemplateMatch",
-        "template": "zhenfajuan.png",
+        "template": "beibao/zhenfajuan2.png",
         "action": "Click",
+        "threshold": 0.93,
+        "next": [
+            "阵法卷数量5"
+        ]
+    },
+    "阵法卷数量5": {
+        "recognition": "OCR",
+        "expected": [
+            "5"
+        ],
+        "roi": "合成阵法",
         "next": [
             "点击阵法使用"
         ]
@@ -232,7 +242,7 @@
             107,
             69
         ],
-        "threshold": 0.85,
+        "threshold": 0.80,
         "pre_wait_freezes": 200,
         "action": "Key",
         "key": 111

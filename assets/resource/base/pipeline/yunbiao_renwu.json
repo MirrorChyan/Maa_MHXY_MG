@@ -58,22 +58,31 @@
         "action": "Click",
         "post_wait_freezes": 6000,
         "next": [
-            "押送普通镖"
+            "押送普通镖银"
         ]
     },
-    "押送普通镖": {
+    "押送普通镖银": {
         "recognition": "OCR",
         "expected": [
             "押送普通镖银"
         ],
+        "roi": [
+            933,
+            262,
+            307,
+            237
+        ],
         "action": "Click",
         "next": [
             "运镖活跃度不够",
-            "押送普通镖_确认"
+            "押送普通镖_确定"
         ]
     },
     "运镖活跃度不够": {
-        "template": "yunbiao/yunbiao_hydbg50.png",
+        "recognition": "OCR",
+        "expected": [
+            "运镖需要活跃度达到50点，你的活跃度不够"
+        ],
         "roi": [
             406,
             281,
@@ -83,10 +92,70 @@
         "action": "Key",
         "key": 111
     },
-    "押送普通镖_确认": {
+    "押送普通镖_确定": {
         "recognition": "OCR",
         "expected": [
-            "确认"
+            "确定"
+        ],
+        "roi": [
+            656,
+            367,
+            189,
+            96
+        ],
+        "action": "Click",
+        "next": [
+            "运镖中",
+            "押送普通镖银"
+        ],
+        "interrupt": [
+            "战斗中-等待10秒"
+        ],
+        "on_error": [
+            "在活动中查看运镖任务是否完成"
+        ]
+    },
+    "运镖中": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "距离运镖完成"
+        ],
+        "roi": [
+            150,
+            1,
+            195,
+            49
+        ],
+        "pre_delay": 10000
+    },
+    "在活动中查看运镖任务是否完成": {
+        "pre_wait_freezes": 500,
+        "action": "Key",
+        "key": [
+            57,
+            31
+        ],
+        "next": [
+            "识别运镖3/3"
+        ],
+        "interrupt": [
+            "baotu_huodong_down"
+        ]
+    },
+    "识别运镖3/3": {
+        "recognition": "OCR",
+        "expected": [
+            "次数3/3"
+        ],
+        "roi": [
+            320,
+            86,
+            826,
+            420
+        ],
+        "next": [
+            "panduan_zhujiemian"
         ]
     }
 }

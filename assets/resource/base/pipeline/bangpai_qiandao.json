@@ -14,15 +14,12 @@
         ]
     },
     "baipai": {
-        "recognition": "TemplateMatch",
-        "template": "qiandao/bangpai.png",
-        "roi": [
-            807,
-            631,
-            69,
-            57
+        "pre_wait_freezes": 500,
+        "action": "Key",
+        "key": [
+            57,
+            30
         ],
-        "action": "Click",
         "next": [
             "bangpaifuli"
         ]
@@ -55,7 +52,7 @@
         "action": "Click",
         "next": [
             "BangPaiFuLiFenHong",
-            "returnmain"
+            "panduan_zhujiemian"
         ]
     },
     "BangPaiFuLiFenHong": {
@@ -87,7 +84,7 @@
         ],
         "action": "Click",
         "next": [
-            "returnmain"
+            "panduan_zhujiemian"
         ]
     }
 }

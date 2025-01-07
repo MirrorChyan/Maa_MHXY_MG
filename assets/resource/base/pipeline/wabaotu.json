@@ -81,6 +81,9 @@
     "挖宝图完成": {
         "recognition": "TemplateMatch",
         "template": "beibao/beibao_konggezi.png",
+        "threshold": [
+            0.8
+        ],
         "roi": [
             995,
             557,
