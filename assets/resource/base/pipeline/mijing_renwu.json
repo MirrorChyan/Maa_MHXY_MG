@@ -16,7 +16,7 @@
         ]
     },
     "dakai_map": {
-        "pre_wait_freezes": 500,
+        "pre_wait_freezes": 100,
         "action": "Key",
         "key": [
             57,
@@ -24,6 +24,25 @@
         ],
         "next": [
             "chuansong_donghaiwan"
+        ],
+        "interrupt": [
+            "dakai_map_panduan"
+        ]
+    },
+    "dakai_map_panduan": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "zonghe/ditu_jiemian_panduan.png",
+        "roi": [
+            111,
+            32,
+            83,
+            79
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            41
         ]
     },
     "chuansong_donghaiwan": {
@@ -35,13 +54,31 @@
         ]
     },
     "click_tab_mijing": {
-        "pre_wait_freezes": 500,
+        "pre_wait_freezes": 100,
         "action": "Key",
         "key": [
             61
         ],
         "next": [
             "click_map_yunleyou"
+        ],
+        "interrupt": [
+            "click_tab_mijing_panduan"
+        ]
+    },
+    "click_tab_mijing_panduan": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "mijing/donghaiwan_tab_panduan.png",
+        "roi": [
+            444,
+            56,
+            60,
+            64
+        ],
+        "action": "Key",
+        "key": [
+            61
         ]
     },
     "click_map_yunleyou": {
@@ -229,7 +266,7 @@
             275
         ],
         "next": [
-            "tuichu_shibeijiemian"
+            "panduan_zhujiemian"
         ]
     },
     "tuichu_shibeijiemian": {

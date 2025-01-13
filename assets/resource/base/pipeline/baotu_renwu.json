@@ -6,6 +6,7 @@
         ]
     },
     "dakai_map_baotu": {
+        "pre_wait_freezes": 1,
         "action": "Key",
         "key": [
             57,
@@ -13,6 +14,25 @@
         ],
         "next": [
             "to_changancheng_baotu"
+        ],
+        "interrupt": [
+            "dakai_map_baotu_panduan"
+        ]
+    },
+    "dakai_map_baotu_panduan": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "zonghe/ditu_jiemian_panduan.png",
+        "roi": [
+            111,
+            32,
+            83,
+            79
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            41
         ]
     },
     "to_changancheng_baotu": {
@@ -30,11 +50,28 @@
         ]
     },
     "to_changancheng_dianxiaoer": {
+        "pre_wait_freezes": 1,
         "action": "Key",
         "key": 61,
         "next": [
             "click_tab_dxe"
+        ],
+        "interrupt": [
+            "to_changancheng_dianxiaoer_panduan"
         ]
+    },
+    "to_changancheng_dianxiaoer_panduan": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "baotu/cac_tab_panduan.png",
+        "roi": [
+            200,
+            2,
+            80,
+            75
+        ],
+        "action": "Key",
+        "key": 61
     },
     "click_tab_dxe": {
         "recognition": "TemplateMatch",
@@ -116,16 +153,49 @@
         ]
     },
     "open_huodong_bt": {
+        "pre_wait_freezes": 1,
         "action": "Key",
         "key": [
             57,
             31
         ],
         "next": [
+            "open_huodong_bt_panduan_chenggong"
+        ],
+        "interrupt": [
+            "open_huodong_bt_panduan_shibai"
+        ]
+    },
+    "open_huodong_bt_panduan_chenggong": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/huodong_jiemian_panduan.png",
+        "roi": [
+            350,
+            23,
+            600,
+            62
+        ],
+        "next": [
             "baotu_wancheng"
         ],
         "interrupt": [
             "baotu_huodong_down"
+        ]
+    },
+    "open_huodong_bt_panduan_shibai": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "zonghe/huodong_jiemian_panduan.png",
+        "roi": [
+            350,
+            23,
+            600,
+            62
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            31
         ]
     },
     "baotu_wancheng": {
@@ -136,6 +206,9 @@
             82,
             828,
             430
+        ],
+        "next": [
+            "panduan_zhujiemian"
         ]
     },
     "baotu_huodong_down": {

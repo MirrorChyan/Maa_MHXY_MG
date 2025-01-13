@@ -1,5 +1,6 @@
 {
     "zhengli_baibao": {
+        "pre_wait_freezes": 1,
         "action": "Key",
         "key": [
             57,
@@ -7,6 +8,25 @@
         ],
         "next": [
             "点击整理"
+        ],
+        "interrupt": [
+            "zhengli_baibao_panduan"
+        ]
+    },
+    "zhengli_baibao_panduan": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "beibao/beibao_jiemian_panduan.png",
+        "roi": [
+            335,
+            5,
+            577,
+            68
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            33
         ]
     },
     "点击整理": {

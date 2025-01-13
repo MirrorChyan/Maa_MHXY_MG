@@ -1,0 +1,555 @@
+{
+    "fuben69": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zonghe/chenghao.png",
+            "zonghe/jiahao.png"
+        ],
+        "roi": [
+            1206,
+            637,
+            66,
+            57
+        ],
+        "next": [
+            "打开大地图_69副本"
+        ],
+        "interrupt": [
+            "panduan_zhujiemian"
+        ]
+    },
+    "打开大地图_69副本": {
+        "pre_delay": 500,
+        "action": "Key",
+        "key": [
+            57,
+            41
+        ],
+        "next": [
+            "传送长安城_69副本"
+        ]
+    },
+    "传送长安城_69副本": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/tab_changancheng.png",
+        "pre_wait_freezes": 1,
+        "action": "Click",
+        "next": [
+            "打开组队-副本"
+        ]
+    },
+    "打开组队-副本": {
+        "pre_wait_freezes": 100,
+        "action": "Key",
+        "key": [
+            57,
+            48
+        ],
+        "next": [
+            "识别到队伍已满员"
+        ],
+        "interrupt": [
+            "点击创建队伍",
+            "识别到队伍已创建-未满员"
+        ]
+    },
+    "识别到队伍已满员": {
+        "inverse": true,
+        "recognition": "OCR",
+        "expected": [
+            "助战"
+        ],
+        "roi": [
+            913,
+            149,
+            189,
+            61
+        ],
+        "next": [
+            "关闭组队页面"
+        ]
+    },
+    "关闭组队页面": {
+        "pre_delay": 500,
+        "action": "Key",
+        "key": [
+            57,
+            48
+        ],
+        "next": [
+            "打开小地图_百晓仙子"
+        ]
+    },
+    "识别到队伍已创建-未满员": {
+        "recognition": "TemplateMatch",
+        "template": "fuben/duiwu.png",
+        "roi": [
+            827,
+            89,
+            52,
+            50
+        ],
+        "next": [
+            "识别到队伍已创建-未满员-开始喊话"
+        ]
+    },
+    "识别到队伍已创建-未满员-开始喊话": {
+        "recognition": "OCR",
+        "expected": [
+            "助战"
+        ],
+        "roi": [
+            331,
+            149,
+            777,
+            65
+        ],
+        "next": [
+            "点击一键喊话"
+        ]
+    },
+    "点击创建队伍": {
+        "recognition": "OCR",
+        "expected": [
+            "创建队伍"
+        ],
+        "roi": [
+            134,
+            622,
+            201,
+            71
+        ],
+        "action": "Click",
+        "next": [
+            "识别到队伍已创建-开始建立目标"
+        ]
+    },
+    "识别到队伍已创建-开始建立目标": {
+        "recognition": "TemplateMatch",
+        "template": "fuben/duiwu.png",
+        "roi": [
+            827,
+            89,
+            52,
+            50
+        ],
+        "action": "Click",
+        "next": [
+            "建立69侠士目标"
+        ]
+    },
+    "建立69侠士目标": {
+        "recognition": "OCR",
+        "expected": [
+            "副本任务"
+        ],
+        "roi": [
+            358,
+            134,
+            273,
+            475
+        ],
+        "action": "Click",
+        "next": [
+            "点击侠士"
+        ]
+    },
+    "点击侠士": {
+        "recognition": "OCR",
+        "expected": [
+            "侠士"
+        ],
+        "roi": [
+            358,
+            134,
+            273,
+            475
+        ],
+        "action": "Click",
+        "next": [
+            "取消自动匹配"
+        ]
+    },
+    "取消自动匹配": {
+        "recognition": "TemplateMatch",
+        "template": "fuben/zidongpipei.png",
+        "roi": [
+            352,
+            628,
+            61,
+            57
+        ],
+        "action": "Click",
+        "next": [
+            "点击侠士确定"
+        ]
+    },
+    "点击侠士确定": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            697,
+            628,
+            174,
+            57
+        ],
+        "action": "Click",
+        "next": [
+            "点击一键喊话"
+        ]
+    },
+    "点击一键喊话": {
+        "recognition": "OCR",
+        "expected": [
+            "一键喊话"
+        ],
+        "action": "Click"
+    },
+    "打开小地图_百晓仙子": {
+        "pre_delay": 1000,
+        "action": "Key",
+        "key": [
+            61
+        ],
+        "next": [
+            "点击地图-百晓仙子"
+        ],
+        "interrupt": [
+            "打开小地图_百晓仙子"
+        ]
+    },
+    "点击地图-百晓仙子": {
+        "recognition": "OCR",
+        "expected": [
+            "百晓"
+        ],
+        "roi": [
+            402,
+            354,
+            138,
+            45
+        ],
+        "action": "Click",
+        "next": [
+            "百晓仙子-选择副本"
+        ]
+    },
+    "百晓仙子-选择副本": {
+        "recognition": "OCR",
+        "expected": [
+            "选择副本"
+        ],
+        "roi": [
+            922,
+            205,
+            318,
+            293
+        ],
+        "action": "Click",
+        "next": [
+            "选择侠士副本"
+        ]
+    },
+    "选择侠士副本": {
+        "recognition": "OCR",
+        "expected": [
+            "侠士副本"
+        ],
+        "roi": [
+            399,
+            104,
+            158,
+            42
+        ],
+        "action": "Click",
+        "next": [
+            "进入50级侠士副本"
+        ]
+    },
+    "进入50级侠士副本": {
+        "recognition": "OCR",
+        "expected": [
+            "进入"
+        ],
+        "roi": [
+            316,
+            570,
+            150,
+            52
+        ],
+        "action": "Click",
+        "next": [
+            "50侠士-副本完成-退出"
+        ],
+        "interrupt": [
+            "点击副本-跳过剧情动画",
+            "战斗中-等待10秒",
+            "点击副本-开始战斗"
+        ]
+    },
+    "测试-进入50级侠士副本": {
+        "next": [
+            "50侠士-副本完成-退出"
+        ],
+        "interrupt": [
+            "战斗中-等待10秒",
+            "点击副本-跳过剧情动画",
+            "点击副本-开始战斗"
+        ]
+    },
+    "50侠士-副本完成-退出": {
+        "recognition": "OCR",
+        "expected": [
+            "副本已完成"
+        ],
+        "roi": [
+            1032,
+            208,
+            149,
+            56
+        ],
+        "action": "Click",
+        "next": [
+            "打开小地图_百晓仙子-50普通-1"
+        ]
+    },
+    "点击副本-跳过剧情动画": {
+        "recognition": "OCR",
+        "expected": [
+            "跳过剧情动画"
+        ],
+        "roi": [
+            1033,
+            254,
+            240,
+            95
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1
+    },
+    "点击副本-开始战斗": {
+        "recognition": "TemplateMatch",
+        "template": "fuben/fubenzhandou.png",
+        "roi": [
+            1239,
+            229,
+            41,
+            45
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "副本-战斗-对话"
+        ]
+    },
+    "副本-战斗-对话": {
+        "recognition": "OCR",
+        "expected": [
+            "请选择要做的事"
+        ],
+        "roi": [
+            925,
+            361,
+            223,
+            51
+        ],
+        "pre_wait_freezes": 1,
+        "action": "Click",
+        "target": [
+            951,
+            442,
+            268,
+            46
+        ]
+    },
+    "打开小地图_百晓仙子-50普通-1": {
+        "pre_delay": 1000,
+        "action": "Key",
+        "key": [
+            61
+        ],
+        "next": [
+            "点击地图-百晓仙子-50普通-1"
+        ],
+        "interrupt": [
+            "打开小地图_百晓仙子-50普通-1"
+        ]
+    },
+    "点击地图-百晓仙子-50普通-1": {
+        "recognition": "OCR",
+        "expected": [
+            "百晓"
+        ],
+        "roi": [
+            402,
+            354,
+            138,
+            45
+        ],
+        "action": "Click",
+        "next": [
+            "百晓仙子-选择副本-50普通-1"
+        ]
+    },
+    "百晓仙子-选择副本-50普通-1": {
+        "recognition": "OCR",
+        "expected": [
+            "选择副本"
+        ],
+        "roi": [
+            922,
+            205,
+            318,
+            293
+        ],
+        "action": "Click",
+        "next": [
+            "进入50级普通副本-1"
+        ]
+    },
+    "进入50级普通副本-1": {
+        "recognition": "OCR",
+        "expected": [
+            "进入"
+        ],
+        "roi": [
+            319,
+            571,
+            145,
+            49
+        ],
+        "action": "Click",
+        "next": [
+            "50普通-1-副本完成-退出"
+        ],
+        "interrupt": [
+            "点击副本-跳过剧情动画",
+            "战斗中-等待10秒",
+            "点击副本-开始战斗"
+        ]
+    },
+    "50普通-1-副本完成-退出": {
+        "recognition": "OCR",
+        "expected": [
+            "副本已完成"
+        ],
+        "roi": [
+            1032,
+            208,
+            149,
+            56
+        ],
+        "action": "Click",
+        "next": [
+            "打开小地图_百晓仙子-50普通-2"
+        ]
+    },
+    "打开小地图_百晓仙子-50普通-2": {
+        "pre_delay": 1000,
+        "action": "Key",
+        "key": [
+            61
+        ],
+        "next": [
+            "点击地图-百晓仙子-50普通-2"
+        ],
+        "interrupt": [
+            "打开小地图_百晓仙子-50普通-2"
+        ]
+    },
+    "点击地图-百晓仙子-50普通-2": {
+        "recognition": "OCR",
+        "expected": [
+            "百晓"
+        ],
+        "roi": [
+            402,
+            354,
+            138,
+            45
+        ],
+        "action": "Click",
+        "next": [
+            "百晓仙子-选择副本-50普通-2"
+        ]
+    },
+    "百晓仙子-选择副本-50普通-2": {
+        "recognition": "OCR",
+        "expected": [
+            "选择副本"
+        ],
+        "roi": [
+            922,
+            205,
+            318,
+            293
+        ],
+        "action": "Click",
+        "next": [
+            "进入50级普通副本-2"
+        ]
+    },
+    "进入50级普通副本-2": {
+        "recognition": "OCR",
+        "expected": [
+            "进入"
+        ],
+        "roi": [
+            603,
+            570,
+            147,
+            51
+        ],
+        "action": "Click",
+        "next": [
+            "50普通-2-副本完成-退出"
+        ],
+        "interrupt": [
+            "点击副本-跳过剧情动画",
+            "战斗中-等待10秒",
+            "点击副本-开始战斗"
+        ]
+    },
+    "50普通-2-副本完成-退出": {
+        "recognition": "OCR",
+        "expected": [
+            "副本已完成"
+        ],
+        "roi": [
+            1032,
+            208,
+            149,
+            56
+        ],
+        "action": "Click",
+        "next": [
+            "退出队伍"
+        ]
+    },
+    "退出队伍": {
+        "pre_wait_freezes": 1,
+        "action": "Key",
+        "key": [
+            57,
+            48
+        ],
+        "next": [
+            "点击退出队伍"
+        ]
+    },
+    "点击退出队伍": {
+        "recognition": "OCR",
+        "expected": [
+            "退出队伍"
+        ],
+        "roi": [
+            148,
+            631,
+            179,
+            52
+        ],
+        "action": "Click"
+    }
+}

@@ -14,7 +14,7 @@
         ]
     },
     "baipai": {
-        "pre_wait_freezes": 500,
+        "pre_wait_freezes": 1,
         "action": "Key",
         "key": [
             57,
@@ -22,6 +22,26 @@
         ],
         "next": [
             "bangpaifuli"
+        ],
+        "interrupt": [
+            "baipai_panduan"
+        ]
+    },
+    "baipai_panduan": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "qiandao/bangpai_jiemian_panduan.png",
+        "roi": [
+            459,
+            0,
+            326,
+            80
+        ],
+        "pre_wait_freezes": 1,
+        "action": "Key",
+        "key": [
+            57,
+            30
         ]
     },
     "bangpaifuli": {

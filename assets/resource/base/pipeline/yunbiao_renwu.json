@@ -19,7 +19,7 @@
         ]
     },
     "打开大地图_运镖": {
-        "pre_wait_freezes": 500,
+        "pre_wait_freezes": 100,
         "action": "Key",
         "key": [
             57,
@@ -27,6 +27,25 @@
         ],
         "next": [
             "传送长安城_运镖"
+        ],
+        "interrupt": [
+            "打开大地图_运镖_判断"
+        ]
+    },
+    "打开大地图_运镖_判断": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "zonghe/ditu_jiemian_panduan.png",
+        "roi": [
+            111,
+            32,
+            83,
+            79
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            41
         ]
     },
     "传送长安城_运镖": {
@@ -34,15 +53,32 @@
         "template": "zonghe/tab_changancheng.png",
         "action": "Click",
         "next": [
-            "打开小地图"
+            "打开小地图_郑镖头"
         ]
     },
-    "打开小地图": {
+    "打开小地图_郑镖头": {
+        "pre_wait_freezes": 1,
         "action": "Key",
         "key": 61,
         "next": [
             "点击郑镖头"
+        ],
+        "interrupt": [
+            "打开小地图_郑镖头_判断"
         ]
+    },
+    "打开小地图_郑镖头_判断": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "baotu/cac_tab_panduan.png",
+        "roi": [
+            200,
+            2,
+            80,
+            75
+        ],
+        "action": "Key",
+        "key": 61
     },
     "点击郑镖头": {
         "recognition": "OCR",
@@ -74,8 +110,23 @@
         ],
         "action": "Click",
         "next": [
+            "运镖已完成三次",
             "运镖活跃度不够",
             "押送普通镖_确定"
+        ]
+    },
+    "运镖已完成三次": {
+        "recognition": "OCR",
+        "pre_wait_freezes": 80,
+        "expected": [
+            "本日押送普通镖次数达到上限",
+            "本日"
+        ],
+        "roi": [
+            417,
+            208,
+            441,
+            240
         ]
     },
     "运镖活跃度不够": {
@@ -130,17 +181,49 @@
         "pre_delay": 10000
     },
     "在活动中查看运镖任务是否完成": {
-        "pre_wait_freezes": 500,
+        "pre_wait_freezes": 100,
         "action": "Key",
         "key": [
             57,
             31
         ],
         "next": [
+            "在活动中查看运镖任务是否完成_打开活动界面成功"
+        ],
+        "interrupt": [
+            "在活动中查看运镖任务是否完成_打开活动界面失败"
+        ]
+    },
+    "在活动中查看运镖任务是否完成_打开活动界面成功": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/huodong_jiemian_panduan.png",
+        "roi": [
+            350,
+            23,
+            600,
+            62
+        ],
+        "next": [
             "识别运镖3/3"
         ],
         "interrupt": [
             "baotu_huodong_down"
+        ]
+    },
+    "在活动中查看运镖任务是否完成_打开活动界面失败": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "zonghe/huodong_jiemian_panduan.png",
+        "roi": [
+            350,
+            23,
+            600,
+            62
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            31
         ]
     },
     "识别运镖3/3": {

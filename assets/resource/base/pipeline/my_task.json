@@ -104,7 +104,7 @@
         "action": "Key",
         "key": 111
     },
-    "huodong_zhedang_guanbi": {
+    "关闭X9联赛弹窗": {
         "recognition": "TemplateMatch",
         "template": "zonghe/shouye_huodong_zedang.png",
         "roi": [
@@ -155,5 +155,19 @@
             159
         ],
         "pre_wait_freezes": 100000
+    },
+    "战斗中-等待50秒": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zhandou/zidong.png",
+            "zhandou/quxiao.png"
+        ],
+        "roi": [
+            1175,
+            549,
+            103,
+            159
+        ],
+        "pre_wait_freezes": 50000
     }
 }

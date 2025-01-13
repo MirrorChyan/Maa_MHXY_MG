@@ -1,15 +1,49 @@
 {
     "wabaotu": {
+        "pre_wait_freezes": 1,
         "action": "Key",
         "key": [
             57,
             33
         ],
         "next": [
-            "点击藏宝图"
+            "wabaotu_dakaibeibao_chenggong"
+        ],
+        "interrupt": [
+            "wabaotu_dakaibeibao_shibai"
+        ]
+    },
+    "wabaotu_dakaibeibao_chenggong": {
+        "recognition": "TemplateMatch",
+        "template": "beibao/beibao_jiemian_panduan.png",
+        "roi": [
+            335,
+            5,
+            577,
+            68
+        ],
+        "next": [
+            "点击藏宝图",
+            "整理完成"
         ],
         "interrupt": [
             "背包向上滑动1"
+        ]
+    },
+    "wabaotu_dakaibeibao_shibai": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "beibao/beibao_jiemian_panduan.png",
+        "roi": [
+            335,
+            5,
+            577,
+            68
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            33
         ]
     },
     "点击藏宝图": {
@@ -64,11 +98,27 @@
         "post_wait_freezes": 5000
     },
     "挖宝图完成判断": {
-        "pre_wait_freezes": 200,
+        "pre_wait_freezes": 100,
         "action": "Key",
         "key": [
             57,
             33
+        ],
+        "next": [
+            "挖宝图完成判断-打开背包成功"
+        ],
+        "interrupt": [
+            "挖宝图完成判断-打开背包失败"
+        ]
+    },
+    "挖宝图完成判断-打开背包成功": {
+        "recognition": "TemplateMatch",
+        "template": "beibao/beibao_jiemian_panduan.png",
+        "roi": [
+            335,
+            5,
+            577,
+            68
         ],
         "next": [
             "点击藏宝图",
@@ -76,6 +126,22 @@
         ],
         "interrupt": [
             "背包向上滑动1"
+        ]
+    },
+    "挖宝图完成判断-打开背包失败": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "beibao/beibao_jiemian_panduan.png",
+        "roi": [
+            335,
+            5,
+            577,
+            68
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            33
         ]
     },
     "挖宝图完成": {
