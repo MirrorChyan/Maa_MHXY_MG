@@ -12,6 +12,7 @@
             57,
             41
         ],
+        "post_delay": 1500,
         "next": [
             "to_changancheng_baotu"
         ],
@@ -33,7 +34,8 @@
         "key": [
             57,
             41
-        ]
+        ],
+        "post_delay": 1000
     },
     "to_changancheng_baotu": {
         "recognition": "TemplateMatch",
@@ -45,6 +47,7 @@
             57
         ],
         "action": "Click",
+        "post_delay": 1000,
         "next": [
             "to_changancheng_dianxiaoer"
         ]
@@ -53,6 +56,7 @@
         "pre_wait_freezes": 1,
         "action": "Key",
         "key": 61,
+        "post_delay": 1500,
         "next": [
             "click_tab_dxe"
         ],
@@ -71,12 +75,14 @@
             75
         ],
         "action": "Key",
-        "key": 61
+        "key": 61,
+        "post_delay": 1500
     },
     "click_tab_dxe": {
         "recognition": "TemplateMatch",
         "template": "baotu/tab_dxe.png",
         "action": "Click",
+        "post_delay": 1000,
         "roi": [
             738,
             359,
@@ -159,6 +165,7 @@
             57,
             31
         ],
+        "post_delay": 1000,
         "next": [
             "open_huodong_bt_panduan_chenggong"
         ],
@@ -196,7 +203,8 @@
         "key": [
             57,
             31
-        ]
+        ],
+        "post_delay": 1000
     },
     "baotu_wancheng": {
         "recognition": "TemplateMatch",

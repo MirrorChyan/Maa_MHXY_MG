@@ -171,6 +171,7 @@
         ],
         "action": "Click",
         "next": [
+            "mijing_zhandou_queren",
             "mijing_zhandou",
             "mijing_tongguan",
             "mijing_shibai",
@@ -179,6 +180,7 @@
     },
     "kk": {
         "next": [
+            "mijing_zhandou_queren",
             "mijing_zhandou",
             "mijing_tongguan",
             "mijing_shibai",

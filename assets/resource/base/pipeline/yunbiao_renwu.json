@@ -25,6 +25,7 @@
             57,
             41
         ],
+        "post_delay": 1000,
         "next": [
             "传送长安城_运镖"
         ],
@@ -46,12 +47,14 @@
         "key": [
             57,
             41
-        ]
+        ],
+        "post_delay": 1000
     },
     "传送长安城_运镖": {
         "recognition": "TemplateMatch",
         "template": "zonghe/tab_changancheng.png",
         "action": "Click",
+        "post_delay": 1000,
         "next": [
             "打开小地图_郑镖头"
         ]
@@ -60,6 +63,7 @@
         "pre_wait_freezes": 1,
         "action": "Key",
         "key": 61,
+        "post_delay": 1000,
         "next": [
             "点击郑镖头"
         ],
@@ -78,7 +82,8 @@
             75
         ],
         "action": "Key",
-        "key": 61
+        "key": 61,
+        "post_delay": 1000
     },
     "点击郑镖头": {
         "recognition": "OCR",
@@ -141,6 +146,7 @@
             195
         ],
         "action": "Key",
+        "post_delay": 1000,
         "key": 111
     },
     "押送普通镖_确定": {
@@ -187,6 +193,7 @@
             57,
             31
         ],
+        "post_delay": 1000,
         "next": [
             "在活动中查看运镖任务是否完成_打开活动界面成功"
         ],

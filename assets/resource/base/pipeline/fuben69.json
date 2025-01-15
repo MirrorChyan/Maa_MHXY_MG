@@ -25,15 +25,37 @@
             57,
             41
         ],
+        "post_delay": 1000,
         "next": [
             "传送长安城_69副本"
+        ],
+        "interrupt": [
+            "传动长安城_69副本_判断"
         ]
+    },
+    "传动长安城_69副本_判断": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "zonghe/ditu_jiemian_panduan.png",
+        "roi": [
+            111,
+            32,
+            83,
+            79
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            41
+        ],
+        "post_delay": 1000
     },
     "传送长安城_69副本": {
         "recognition": "TemplateMatch",
         "template": "zonghe/tab_changancheng.png",
         "pre_wait_freezes": 1,
         "action": "Click",
+        "post_delay": 1000,
         "next": [
             "打开组队-副本"
         ]
@@ -45,6 +67,7 @@
             57,
             48
         ],
+        "post_delay": 3000,
         "next": [
             "识别到队伍已满员"
         ],
@@ -76,6 +99,7 @@
             57,
             48
         ],
+        "post_delay": 1000,
         "next": [
             "打开小地图_百晓仙子"
         ]
@@ -120,6 +144,7 @@
             71
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "识别到队伍已创建-开始建立目标"
         ]
@@ -134,6 +159,7 @@
             50
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "建立69侠士目标"
         ]
@@ -150,6 +176,7 @@
             475
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "点击侠士"
         ]
@@ -166,6 +193,7 @@
             475
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "取消自动匹配"
         ]
@@ -180,6 +208,7 @@
             57
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "点击侠士确定"
         ]
@@ -196,16 +225,24 @@
             57
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "点击一键喊话"
         ]
     },
     "点击一键喊话": {
         "recognition": "OCR",
+        "roi": [
+            914,
+            616,
+            193,
+            75
+        ],
         "expected": [
             "一键喊话"
         ],
-        "action": "Click"
+        "action": "Click",
+        "post_delay": 25000
     },
     "打开小地图_百晓仙子": {
         "pre_delay": 1000,
@@ -213,6 +250,7 @@
         "key": [
             61
         ],
+        "post_delay": 1000,
         "next": [
             "点击地图-百晓仙子"
         ],
@@ -232,6 +270,7 @@
             45
         ],
         "action": "Click",
+        "post_delay": 1000,
         "next": [
             "百晓仙子-选择副本"
         ]
@@ -248,6 +287,7 @@
             293
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "选择侠士副本"
         ]
@@ -264,6 +304,7 @@
             42
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "进入50级侠士副本"
         ]
@@ -280,6 +321,7 @@
             52
         ],
         "action": "Click",
+        "post_delay": 200,
         "next": [
             "50侠士-副本完成-退出"
         ],
@@ -294,8 +336,8 @@
             "50侠士-副本完成-退出"
         ],
         "interrupt": [
-            "战斗中-等待10秒",
             "点击副本-跳过剧情动画",
+            "战斗中-等待10秒",
             "点击副本-开始战斗"
         ]
     },
@@ -327,7 +369,7 @@
             95
         ],
         "action": "Click",
-        "post_wait_freezes": 1
+        "post_wait_freezes": 10
     },
     "点击副本-开始战斗": {
         "recognition": "TemplateMatch",
@@ -512,6 +554,16 @@
             "点击副本-开始战斗"
         ]
     },
+    "测试-进入50级普通副本-2": {
+        "next": [
+            "50普通-2-副本完成-退出"
+        ],
+        "interrupt": [
+            "点击副本-跳过剧情动画",
+            "战斗中-等待10秒",
+            "点击副本-开始战斗"
+        ]
+    },
     "50普通-2-副本完成-退出": {
         "recognition": "OCR",
         "expected": [
@@ -529,14 +581,18 @@
         ]
     },
     "退出队伍": {
-        "pre_wait_freezes": 1,
+        "pre_wait_freezes": 10,
         "action": "Key",
         "key": [
             57,
             48
         ],
+        "post_delay": 1000,
         "next": [
             "点击退出队伍"
+        ],
+        "interrupt": [
+            "退出队伍"
         ]
     },
     "点击退出队伍": {

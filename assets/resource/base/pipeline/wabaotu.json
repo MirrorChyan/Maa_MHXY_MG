@@ -6,6 +6,7 @@
             57,
             33
         ],
+        "post_delay": 1000,
         "next": [
             "wabaotu_dakaibeibao_chenggong"
         ],
@@ -44,7 +45,8 @@
         "key": [
             57,
             33
-        ]
+        ],
+        "post_delay": 1000
     },
     "点击藏宝图": {
         "recognition": "TemplateMatch",

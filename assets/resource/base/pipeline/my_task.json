@@ -92,7 +92,8 @@
         "template": [
             "zonghe/jiahao.png",
             "zonghe/chenghao.png",
-            "zonghe/baoguo.png"
+            "zonghe/baoguo.png",
+            "zonghe/baoguo_man.png"
         ],
         "roi": [
             1197,
@@ -102,6 +103,7 @@
         ],
         "inverse": true,
         "action": "Key",
+        "post_wait_freezes": 1,
         "key": 111
     },
     "关闭X9联赛弹窗": {

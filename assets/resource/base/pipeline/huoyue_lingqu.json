@@ -1,0 +1,131 @@
+{
+    "huoyue_lingqu": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zonghe/chenghao.png",
+            "zonghe/jiahao.png"
+        ],
+        "roi": [
+            1206,
+            637,
+            66,
+            57
+        ],
+        "next": [
+            "活跃奖励领取"
+        ],
+        "interrupt": [
+            "panduan_zhujiemian"
+        ]
+    },
+    "活跃奖励领取": {
+        "pre_wait_freezes": 1,
+        "action": "Key",
+        "key": [
+            57,
+            31
+        ],
+        "post_delay": 1000,
+        "next": [
+            "活跃奖励领取-打开活动界面成功"
+        ],
+        "interrupt": [
+            "活跃奖励领取-打开活动界面失败"
+        ]
+    },
+    "活跃奖励领取-打开活动界面成功": {
+        "recognition": "TemplateMatch",
+        "template": "zonghe/huodong_jiemian_panduan.png",
+        "roi": [
+            350,
+            23,
+            600,
+            62
+        ],
+        "next": [
+            "领取活跃奖励5"
+        ]
+    },
+    "活跃奖励领取-打开活动界面失败": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "zonghe/huodong_jiemian_panduan.png",
+        "roi": [
+            350,
+            23,
+            600,
+            62
+        ],
+        "action": "Key",
+        "key": [
+            57,
+            31
+        ],
+        "post_delay": 1000
+    },
+    "领取活跃奖励5": {
+        "action": "Click",
+        "target": [
+            1031,
+            530,
+            72,
+            75
+        ],
+        "post_delay": 500,
+        "next": [
+            "领取活跃奖励4"
+        ]
+    },
+    "领取活跃奖励4": {
+        "action": "Click",
+        "target": [
+            872,
+            524,
+            81,
+            79
+        ],
+        "post_delay": 500,
+        "next": [
+            "领取活跃奖励3"
+        ]
+    },
+    "领取活跃奖励3": {
+        "action": "Click",
+        "target": [
+            730,
+            528,
+            70,
+            80
+        ],
+        "post_delay": 500,
+        "next": [
+            "领取活跃奖励2"
+        ]
+    },
+    "领取活跃奖励2": {
+        "action": "Click",
+        "target": [
+            572,
+            527,
+            80,
+            77
+        ],
+        "post_delay": 500,
+        "next": [
+            "领取活跃奖励1"
+        ]
+    },
+    "领取活跃奖励1": {
+        "action": "Click",
+        "target": [
+            428,
+            528,
+            69,
+            77
+        ],
+        "post_delay": 500,
+        "next": [
+            "panduan_zhujiemian"
+        ]
+    }
+}
