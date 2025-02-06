@@ -20,6 +20,7 @@
             57,
             30
         ],
+        "post_delay": 1000,
         "next": [
             "bangpaifuli"
         ],
@@ -42,7 +43,8 @@
         "key": [
             57,
             30
-        ]
+        ],
+        "post_delay": 1000
     },
     "bangpaifuli": {
         "recognition": "TemplateMatch",

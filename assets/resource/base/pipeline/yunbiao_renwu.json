@@ -52,7 +52,11 @@
     },
     "传送长安城_运镖": {
         "recognition": "TemplateMatch",
-        "template": "zonghe/tab_changancheng.png",
+        "template": [
+            "zonghe/tab_changancheng.png",
+            "zonghe/tab_changancheng2.png"
+        ],
+        "pre_delay": 200,
         "action": "Click",
         "post_delay": 1000,
         "next": [
@@ -231,7 +235,8 @@
         "key": [
             57,
             31
-        ]
+        ],
+        "post_delay": 1000
     },
     "识别运镖3/3": {
         "recognition": "OCR",

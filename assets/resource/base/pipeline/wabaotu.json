@@ -106,6 +106,7 @@
             57,
             33
         ],
+        "post_delay": 1000,
         "next": [
             "挖宝图完成判断-打开背包成功"
         ],
@@ -144,7 +145,8 @@
         "key": [
             57,
             33
-        ]
+        ],
+        "post_delay": 1000
     },
     "挖宝图完成": {
         "recognition": "TemplateMatch",
@@ -160,6 +162,7 @@
         ],
         "pre_wait_freezes": 200,
         "action": "Key",
-        "key": 111
+        "key": 111,
+        "post_delay": 1000
     }
 }

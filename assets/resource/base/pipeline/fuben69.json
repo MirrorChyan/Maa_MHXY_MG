@@ -52,7 +52,10 @@
     },
     "传送长安城_69副本": {
         "recognition": "TemplateMatch",
-        "template": "zonghe/tab_changancheng.png",
+        "template": [
+            "zonghe/tab_changancheng.png",
+            "zonghe/tab_changancheng2.png"
+        ],
         "pre_wait_freezes": 1,
         "action": "Click",
         "post_delay": 1000,
@@ -72,6 +75,7 @@
             "识别到队伍已满员"
         ],
         "interrupt": [
+            "打开组队-副本-判断",
             "点击创建队伍",
             "识别到队伍已创建-未满员"
         ]
@@ -131,6 +135,24 @@
         "next": [
             "点击一键喊话"
         ]
+    },
+    "打开组队-副本-判断": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "duiwu/duiwu-jiemian.png",
+        "roi": [
+            361,
+            2,
+            532,
+            67
+        ],
+        "pre_delay": 2000,
+        "action": "Key",
+        "key": [
+            57,
+            48
+        ],
+        "post_delay": 200
     },
     "点击创建队伍": {
         "recognition": "OCR",
@@ -255,13 +277,29 @@
             "点击地图-百晓仙子"
         ],
         "interrupt": [
-            "打开小地图_百晓仙子"
+            "打开小地图_百晓仙子-判断"
         ]
+    },
+    "打开小地图_百晓仙子-判断": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "template": "baotu/cac_tab_panduan.png",
+        "roi": [
+            200,
+            2,
+            80,
+            75
+        ],
+        "action": "Key",
+        "key": 61,
+        "post_delay": 1000
     },
     "点击地图-百晓仙子": {
         "recognition": "OCR",
         "expected": [
-            "百晓"
+            "百晓",
+            "仙子",
+            "百晓仙子"
         ],
         "roi": [
             402,
@@ -412,6 +450,7 @@
         "key": [
             61
         ],
+        "post_delay": 1000,
         "next": [
             "点击地图-百晓仙子-50普通-1"
         ],
@@ -422,7 +461,9 @@
     "点击地图-百晓仙子-50普通-1": {
         "recognition": "OCR",
         "expected": [
-            "百晓"
+            "百晓",
+            "仙子",
+            "百晓仙子"
         ],
         "roi": [
             402,
@@ -494,6 +535,7 @@
         "key": [
             61
         ],
+        "post_delay": 1000,
         "next": [
             "点击地图-百晓仙子-50普通-2"
         ],
@@ -504,7 +546,9 @@
     "点击地图-百晓仙子-50普通-2": {
         "recognition": "OCR",
         "expected": [
-            "百晓"
+            "百晓",
+            "仙子",
+            "百晓仙子"
         ],
         "roi": [
             402,
@@ -606,6 +650,9 @@
             179,
             52
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "panduan_zhujiemian"
+        ]
     }
 }

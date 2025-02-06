@@ -65,6 +65,10 @@
         {
             "name": "活跃领取",
             "entry": "huoyue_lingqu"
+        },
+        {
+            "name": "捉鬼任务",
+            "entry": "zhuoguirenwu"
         }
     ]
 }

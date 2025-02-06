@@ -39,13 +39,11 @@
     },
     "to_changancheng_baotu": {
         "recognition": "TemplateMatch",
-        "template": "zonghe/tab_changancheng.png",
-        "roi": [
-            531,
-            399,
-            152,
-            57
+        "template": [
+            "zonghe/tab_changancheng.png",
+            "zonghe/tab_changancheng2.png"
         ],
+        "pre_delay": 200,
         "action": "Click",
         "post_delay": 1000,
         "next": [
