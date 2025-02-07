@@ -1,7 +1,7 @@
 ## 下载打包的程序
 
-1.下载对应系统（Android、win、macos）版本的X86，arm
-2.解压后运行 `MaaPiCli.exe` 即可
+1.下载对应系统（Android、win、macos）版本的X86，arm\
+2.解压后运行 `MaaPiCli.exe` 即可\
 3.MUMU模拟器12，1280*720 240dpi
 
 ## 使用方法
@@ -128,3 +128,6 @@ Please input [1-7]:
     5. 删除任务
     6. 开始执行任务，在这之后就会自动开始操控。
     7. 退出
+
+# 演示示例
+![alt text](image-2.png)

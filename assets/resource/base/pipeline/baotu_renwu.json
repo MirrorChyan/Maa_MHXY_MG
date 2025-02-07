@@ -41,7 +41,8 @@
         "recognition": "TemplateMatch",
         "template": [
             "zonghe/tab_changancheng.png",
-            "zonghe/tab_changancheng2.png"
+            "zonghe/tab_changancheng2.png",
+            "zonghe/tab_changancheng3.png"
         ],
         "pre_delay": 200,
         "action": "Click",
