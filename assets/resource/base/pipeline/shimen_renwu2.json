@@ -1,5 +1,40 @@
 {
     "shimen_renwu2": {
+        "next": [
+            "师门任务2-识别任务栏"
+        ],
+        "interrupt": [
+            "师门任务2-点击展开任务栏",
+            "panduan_zhujiemian"
+        ]
+    },
+    "师门任务2-识别任务栏": {
+        "recognition": "TemplateMatch",
+        "template": "./shimen/shimen_renwulan_zhankaizhong.png",
+        "roi": [
+            1035,
+            114,
+            50,
+            49
+        ],
+        "post_delay": 200,
+        "next": [
+            "师门任务2-向下滑动任务栏"
+        ]
+    },
+    "师门任务2-点击展开任务栏": {
+        "recognition": "TemplateMatch",
+        "template": "./shimen/shimen_renwulan_suojin.png",
+        "roi": [
+            1226,
+            121,
+            41,
+            45
+        ],
+        "action": "Click"
+    },
+    "师门任务2-向下滑动任务栏": {
+        "pre_delay": 200,
         "action": "Swipe",
         "begin": [
             1142,

@@ -1,5 +1,13 @@
 {
     "zhuoguirenwu": {
+        "next": [
+            "识别位置-长安城-抓鬼-过渡"
+        ],
+        "interrupt": [
+            "panduan_zhujiemian"
+        ]
+    },
+    "识别位置-长安城-抓鬼-过渡": {
         "recognition": "TemplateMatch",
         "template": [
             "zonghe/chenghao.png",
@@ -12,10 +20,26 @@
             57
         ],
         "next": [
-            "打开大地图_捉鬼"
+            "识别位置-长安城-抓鬼"
         ],
         "interrupt": [
-            "panduan_zhujiemian"
+            "打开大地图_捉鬼"
+        ]
+    },
+    "识别位置-长安城-抓鬼": {
+        "recognition": "OCR",
+        "expected": [
+            "长安城"
+        ],
+        "roi": [
+            108,
+            22,
+            117,
+            31
+        ],
+        "post_delay": 3000,
+        "next": [
+            "打开组队-捉鬼"
         ]
     },
     "打开大地图_捉鬼": {
@@ -40,12 +64,9 @@
             "zonghe/tab_changancheng2.png",
             "zonghe/tab_changancheng3.png"
         ],
-        "pre_wait_freezes": 1,
+        "pre_delay": 1000,
         "action": "Click",
-        "post_delay": 1000,
-        "next": [
-            "打开组队-捉鬼"
-        ]
+        "post_delay": 1000
     },
     "打开组队-捉鬼": {
         "pre_wait_freezes": 1,
@@ -315,7 +336,8 @@
         "expected": [
             "钟馗",
             "钟道",
-            "钟"
+            "钟",
+            "道"
         ],
         "roi": [
             357,

@@ -1,14 +1,7 @@
 {
     "zhengli_baibao": {
-        "pre_wait_freezes": 1,
-        "action": "Key",
-        "key": [
-            57,
-            33
-        ],
-        "post_delay": 1000,
         "next": [
-            "点击整理"
+            "打开背包成功"
         ],
         "interrupt": [
             "zhengli_baibao_panduan"
@@ -31,6 +24,76 @@
         ],
         "post_delay": 1000
     },
+    "打开背包成功": {
+        "recognition": "TemplateMatch",
+        "template": "beibao/beibao_jiemian_panduan.png",
+        "roi": [
+            335,
+            5,
+            577,
+            68
+        ],
+        "next": [
+            "背包向上滑动到顶端"
+        ]
+    },
+    "背包向上滑动到顶端": {
+        "action": "MultiSwipe",
+        "swipes": [
+            {
+                "starting": 0,
+                "begin": [
+                    907,
+                    220,
+                    1,
+                    1
+                ],
+                "end": [
+                    908,
+                    447,
+                    1,
+                    1
+                ],
+                "duration": 200
+            },
+            {
+                "starting": 1000,
+                "begin": [
+                    907,
+                    220,
+                    1,
+                    1
+                ],
+                "end": [
+                    908,
+                    447,
+                    1,
+                    1
+                ],
+                "duration": 200
+            },
+            {
+                "starting": 2000,
+                "begin": [
+                    907,
+                    220,
+                    1,
+                    1
+                ],
+                "end": [
+                    908,
+                    447,
+                    1,
+                    1
+                ],
+                "duration": 200
+            }
+        ],
+        "post_delay": 1000,
+        "next": [
+            "点击整理"
+        ]
+    },
     "点击整理": {
         "recognition": "OCR",
         "expected": [
@@ -50,8 +113,9 @@
             "使用红罗羹",
             "使用绿芦羹",
             "使用心魔宝珠",
-            "出售百炼精铁",
-            "出售阵法",
+            "合成阵法",
+            "使用秘境材料",
+            "使用过期物品",
             "背包向上滑动1"
         ]
     },
@@ -224,11 +288,17 @@
     "合成阵法": {
         "post_delay": 200,
         "recognition": "TemplateMatch",
-        "template": "beibao/zhenfajuan2.png",
+        "template": "beibao/zhenfajuan.png",
+        "roi": [
+            618,
+            140,
+            479,
+            479
+        ],
         "action": "Click",
-        "threshold": 0.93,
+        "threshold": 0.98,
         "next": [
-            "阵法卷数量5"
+            "点击阵法使用"
         ]
     },
     "阵法卷数量5": {
@@ -255,18 +325,95 @@
         "action": "Click",
         "post_delay": 500
     },
+    "使用过期物品": {
+        "recognition": "TemplateMatch",
+        "template": "beibao/guoqi.png",
+        "roi": [
+            618,
+            140,
+            479,
+            479
+        ],
+        "action": "Click",
+        "next": [
+            "使用过期物品-使用"
+        ]
+    },
+    "使用过期物品-使用": {
+        "recognition": "OCR",
+        "expected": [
+            "使用"
+        ],
+        "roi": [
+            387,
+            354,
+            210,
+            278
+        ],
+        "action": "Click"
+    },
+    "使用秘境材料": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "mijing_cailiao/bulaogen.png",
+            "mijing_cailiao/chilongjiao.png",
+            "mijing_cailiao/danzhusha.png",
+            "mijing_cailiao/donghuangjiuge.png",
+            "mijing_cailiao/dushengyupo.png",
+            "mijing_cailiao/jiangmulingzhong.png",
+            "mijing_cailiao/jiaorenzhu.png",
+            "mijing_cailiao/jinwuzhi.png",
+            "mijing_cailiao/nanshanyu.png",
+            "mijing_cailiao/qimingzhiyao.png",
+            "mijing_cailiao/wangchuanshi.png",
+            "mijing_cailiao/wutongshenmu.png",
+            "mijing_cailiao/xiaochunlan.png",
+            "mijing_cailiao/xitianqueling.png",
+            "mijing_cailiao/xuannvlei.png",
+            "mijing_cailiao/yinyangcao.png",
+            "mijing_cailiao/yueguilu.png",
+            "mijing_cailiao/zhurongguo.png"
+        ],
+        "roi": [
+            618,
+            140,
+            479,
+            479
+        ],
+        "action": "Click",
+        "next": [
+            "秘境材料-收入"
+        ]
+    },
+    "秘境材料-收入": {
+        "recognition": "OCR",
+        "expected": [
+            "收入"
+        ],
+        "roi": [
+            437,
+            427,
+            134,
+            48
+        ],
+        "action": "Click"
+    },
     "整理完成": {
         "recognition": "TemplateMatch",
-        "template": "beibao/beibao_konggezi.png",
+        "template": [
+            "beibao/beibao_konggezi.png",
+            "beibao/beibao_diduan.png"
+        ],
         "roi": [
-            995,
-            557,
-            107,
-            69
+            894,
+            515,
+            211,
+            163
         ],
         "threshold": 0.80,
         "pre_wait_freezes": 200,
-        "action": "Key",
-        "key": 111
+        "next": [
+            "panduan_zhujiemian"
+        ]
     }
 }

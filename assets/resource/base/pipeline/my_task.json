@@ -104,7 +104,8 @@
         "inverse": true,
         "action": "Key",
         "post_wait_freezes": 1,
-        "key": 111
+        "key": 111,
+        "post_delay": 200
     },
     "关闭X9联赛弹窗": {
         "recognition": "TemplateMatch",
@@ -131,7 +132,9 @@
         ],
         "action": "Click"
     },
-    "zai_zhujiemian": {},
+    "zai_zhujiemian": {
+        "pre_delay": 1000
+    },
     "MyTask3": {},
     "zhankairenwulan": {
         "recognition": "TemplateMatch",
@@ -171,5 +174,11 @@
             159
         ],
         "pre_wait_freezes": 50000
+    },
+    "MyTask4": {
+        "recognition": "Custom",
+        "custom_recognition": "my_reco_222",
+        "action": "Custom",
+        "custom_action": "my_action_111"
     }
 }

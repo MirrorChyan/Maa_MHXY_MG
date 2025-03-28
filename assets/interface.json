@@ -13,6 +13,12 @@
             ]
         }
     ],
+    "agent": {
+        "child_exec": "python",
+        "child_args": [
+            "{PROJECT_DIR}/agent/main.py"
+        ]
+    },
     "task": [
         {
             "name": "普通任务",
@@ -60,7 +66,11 @@
         },
         {
             "name": "副本320(69)",
-            "entry": "fuben69"
+            "entry": "fuben69",
+            "option": [
+                "创建队伍-副本",
+                "320或3本"
+            ]
         },
         {
             "name": "活跃领取",
@@ -69,6 +79,83 @@
         {
             "name": "捉鬼任务",
             "entry": "zhuoguirenwu"
+        },
+        {
+            "name": "选项测试",
+            "entry": "xuanxiangceshi",
+            "option": [
+                "地图跳转"
+            ]
+        },
+        {
+            "name": "出售商会",
+            "entry": "chushoushanghui"
+        },
+        {
+            "name": "三界奇缘",
+            "entry": "sanjieqiyuan"
+        },
+        {
+            "name": "三界奇缘2",
+            "entry": "sanjieqiyuan2"
         }
-    ]
+    ],
+    "option": {
+        "地图跳转": {
+            "cases": [
+                {
+                    "name": "长安城",
+                    "pipeline_override": {
+                        "跳转地图选择": {}
+                    }
+                },
+                {
+                    "name": "东海湾",
+                    "pipeline_override": {
+                        "跳转地图选择": {
+                            "template": [
+                                "mijing/ditu_donghaiwan.png"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "创建队伍-副本": {
+            "cases": [
+                {
+                    "name": "不需创建队伍",
+                    "pipeline_override": {
+                        "识别位置-长安城-副本": {
+                            "next": [
+                                "打开小地图_百晓仙子"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "需要创建队伍",
+                    "pipeline_override": {}
+                }
+            ]
+        },
+        "320或3本": {
+            "cases": [
+                {
+                    "name": "3副本加两轮鬼",
+                    "pipeline_override": {
+                        "50普通-2-副本完成-退出": {
+                            "next": [
+                                "日常抓鬼-第一轮"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3副本",
+                    "pipeline_override": {}
+                }
+            ]
+        }
+    }
 }

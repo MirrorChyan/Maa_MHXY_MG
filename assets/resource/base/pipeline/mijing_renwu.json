@@ -1,5 +1,13 @@
 {
     "mijing_renwu": {
+        "next": [
+            "识别位置-东海湾-秘境-过渡"
+        ],
+        "interrupt": [
+            "panduan_zhujiemian"
+        ]
+    },
+    "识别位置-东海湾-秘境-过渡": {
         "recognition": "TemplateMatch",
         "template": [
             "zonghe/chenghao.png",
@@ -12,10 +20,25 @@
             57
         ],
         "next": [
-            "dakai_map"
+            "识别位置-东海湾-秘境"
         ],
         "interrupt": [
-            "panduan_zhujiemian"
+            "dakai_map"
+        ]
+    },
+    "识别位置-东海湾-秘境": {
+        "recognition": "OCR",
+        "expected": [
+            "东海湾"
+        ],
+        "roi": [
+            105,
+            22,
+            124,
+            34
+        ],
+        "next": [
+            "click_tab_mijing"
         ]
     },
     "dakai_map": {
@@ -53,10 +76,8 @@
     "chuansong_donghaiwan": {
         "recognition": "TemplateMatch",
         "template": "mijing/ditu_donghaiwan.png",
-        "action": "Click",
-        "next": [
-            "click_tab_mijing"
-        ]
+        "pre_delay": 1000,
+        "action": "Click"
     },
     "click_tab_mijing": {
         "pre_wait_freezes": 100,

@@ -1,8 +1,45 @@
 {
     "baotu_renwu": {
         "next": [
-            "dakai_map_baotu",
+            "识别位置-长安城-宝图-过渡"
+        ],
+        "interrupt": [
             "panduan_zhujiemian"
+        ]
+    },
+    "识别位置-长安城-宝图-过渡": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zonghe/chenghao.png",
+            "zonghe/jiahao.png"
+        ],
+        "roi": [
+            1206,
+            637,
+            66,
+            57
+        ],
+        "next": [
+            "识别位置-长安城-宝图"
+        ],
+        "interrupt": [
+            "dakai_map_baotu"
+        ]
+    },
+    "识别位置-长安城-宝图": {
+        "recognition": "OCR",
+        "expected": [
+            "长安城"
+        ],
+        "roi": [
+            108,
+            22,
+            117,
+            31
+        ],
+        "post_delay": 3000,
+        "next": [
+            "to_changancheng_dianxiaoer"
         ]
     },
     "dakai_map_baotu": {
@@ -44,12 +81,9 @@
             "zonghe/tab_changancheng2.png",
             "zonghe/tab_changancheng3.png"
         ],
-        "pre_delay": 200,
+        "pre_delay": 1000,
         "action": "Click",
-        "post_delay": 1000,
-        "next": [
-            "to_changancheng_dianxiaoer"
-        ]
+        "post_delay": 1000
     },
     "to_changancheng_dianxiaoer": {
         "pre_wait_freezes": 1,
@@ -152,7 +186,7 @@
         ]
     },
     "baotu_renwu_sleep": {
-        "pre_delay": 600000,
+        "pre_delay": 700000,
         "next": [
             "open_huodong_bt"
         ]
@@ -181,6 +215,56 @@
             600,
             62
         ],
+        "pre_delay": 200,
+        "action": "MultiSwipe",
+        "swipes": [
+            {
+                "starting": 0,
+                "begin": [
+                    730,
+                    153,
+                    1,
+                    1
+                ],
+                "end": [
+                    732,
+                    455,
+                    1,
+                    1
+                ]
+            },
+            {
+                "starting": 1000,
+                "begin": [
+                    730,
+                    153,
+                    1,
+                    1
+                ],
+                "end": [
+                    732,
+                    455,
+                    1,
+                    1
+                ]
+            },
+            {
+                "starting": 2000,
+                "begin": [
+                    730,
+                    153,
+                    1,
+                    1
+                ],
+                "end": [
+                    732,
+                    455,
+                    1,
+                    1
+                ]
+            }
+        ],
+        "post_delay": 200,
         "next": [
             "baotu_wancheng"
         ],
@@ -231,6 +315,7 @@
             250,
             1,
             1
-        ]
+        ],
+        "post_delay": 2000
     }
 }

@@ -64,8 +64,15 @@ def install_chores():
         install_path,
     )
 
+def install_agent():
+     shutil.copytree(
+         working_dir /  "assets" /  "agent",
+         install_path /  "agent",
+         dirs_exist_ok=True,
+     )
 
 if __name__ == "__main__":
     install_deps()
     install_resource()
     install_chores()
+    install_agent()

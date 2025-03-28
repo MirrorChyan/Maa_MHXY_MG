@@ -1,5 +1,13 @@
 {
     "yunbiao_renwu": {
+        "next": [
+            "识别位置-长安城-运镖-过渡"
+        ],
+        "interrupt": [
+            "panduan_zhujiemian"
+        ]
+    },
+    "识别位置-长安城-运镖-过渡": {
         "recognition": "TemplateMatch",
         "template": [
             "zonghe/chenghao.png",
@@ -12,10 +20,26 @@
             57
         ],
         "next": [
-            "打开大地图_运镖"
+            "识别位置-长安城-运镖"
         ],
         "interrupt": [
-            "panduan_zhujiemian"
+            "打开大地图_运镖"
+        ]
+    },
+    "识别位置-长安城-运镖": {
+        "recognition": "OCR",
+        "expected": [
+            "长安城"
+        ],
+        "roi": [
+            108,
+            22,
+            117,
+            31
+        ],
+        "post_delay": 3000,
+        "next": [
+            "打开小地图_郑镖头"
         ]
     },
     "打开大地图_运镖": {
@@ -57,12 +81,9 @@
             "zonghe/tab_changancheng2.png",
             "zonghe/tab_changancheng3.png"
         ],
-        "pre_delay": 200,
+        "pre_delay": 1000,
         "action": "Click",
-        "post_delay": 1000,
-        "next": [
-            "打开小地图_郑镖头"
-        ]
+        "post_delay": 1000
     },
     "打开小地图_郑镖头": {
         "pre_wait_freezes": 1,

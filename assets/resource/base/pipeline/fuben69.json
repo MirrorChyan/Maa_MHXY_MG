@@ -1,5 +1,13 @@
 {
     "fuben69": {
+        "next": [
+            "识别位置-长安城-副本-过渡"
+        ],
+        "interrupt": [
+            "panduan_zhujiemian"
+        ]
+    },
+    "识别位置-长安城-副本-过渡": {
         "recognition": "TemplateMatch",
         "template": [
             "zonghe/chenghao.png",
@@ -11,11 +19,28 @@
             66,
             57
         ],
+        "post_delay": 3000,
         "next": [
-            "打开大地图_69副本"
+            "识别位置-长安城-副本"
         ],
         "interrupt": [
-            "panduan_zhujiemian"
+            "打开大地图_69副本"
+        ]
+    },
+    "识别位置-长安城-副本": {
+        "recognition": "OCR",
+        "expected": [
+            "长安城"
+        ],
+        "roi": [
+            108,
+            22,
+            117,
+            31
+        ],
+        "post_delay": 3000,
+        "next": [
+            "打开组队-副本"
         ]
     },
     "打开大地图_69副本": {
@@ -57,12 +82,9 @@
             "zonghe/tab_changancheng2.png",
             "zonghe/tab_changancheng3.png"
         ],
-        "pre_wait_freezes": 1,
+        "pre_delay": 1000,
         "action": "Click",
-        "post_delay": 1000,
-        "next": [
-            "打开组队-副本"
-        ]
+        "post_delay": 1000
     },
     "打开组队-副本": {
         "pre_wait_freezes": 100,
@@ -184,68 +206,85 @@
         "action": "Click",
         "post_delay": 200,
         "next": [
-            "建立69侠士目标"
+            "建立69侠士目标-点击日常任务"
         ]
     },
-    "建立69侠士目标": {
+    "建立69侠士目标-点击日常任务": {
+        "recognition": "OCR",
+        "expected": [
+            "日常任务"
+        ],
+        "roi": [
+            249,
+            112,
+            276,
+            490
+        ],
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "建立69侠士目标-点击副本任务"
+        ]
+    },
+    "建立69侠士目标-点击副本任务": {
         "recognition": "OCR",
         "expected": [
             "副本任务"
         ],
         "roi": [
-            358,
-            134,
-            273,
-            475
+            249,
+            112,
+            276,
+            490
         ],
         "action": "Click",
         "post_delay": 200,
         "next": [
-            "点击侠士"
+            "建立69侠士目标-点击69侠士"
         ]
     },
-    "点击侠士": {
+    "建立69侠士目标-点击69侠士": {
         "recognition": "OCR",
         "expected": [
             "侠士"
         ],
         "roi": [
-            358,
-            134,
-            273,
-            475
+            523,
+            126,
+            212,
+            441
         ],
         "action": "Click",
         "post_delay": 200,
         "next": [
-            "取消自动匹配"
+            "建立69侠士目标-取消自动匹配"
         ]
     },
-    "取消自动匹配": {
+    "建立69侠士目标-取消自动匹配": {
         "recognition": "TemplateMatch",
         "template": "fuben/zidongpipei.png",
         "roi": [
-            352,
-            628,
-            61,
-            57
+            241,
+            622,
+            64,
+            53
         ],
         "action": "Click",
         "post_delay": 200,
         "next": [
-            "点击侠士确定"
+            "建立69侠士目标-点击侠士确定"
         ]
     },
-    "点击侠士确定": {
+    "建立69侠士目标-点击侠士确定": {
         "recognition": "OCR",
         "expected": [
             "确定"
         ],
         "roi": [
-            697,
-            628,
-            174,
-            57
+            534,
+            608,
+            203,
+            87
         ],
         "action": "Click",
         "post_delay": 200,
@@ -397,6 +436,7 @@
         ]
     },
     "点击副本-跳过剧情动画": {
+        "pre_delay": 1000,
         "recognition": "OCR",
         "expected": [
             "跳过剧情动画"
@@ -411,6 +451,7 @@
         "post_wait_freezes": 10
     },
     "点击副本-开始战斗": {
+        "pre_delay": 1000,
         "recognition": "TemplateMatch",
         "template": "fuben/fubenzhandou.png",
         "roi": [
@@ -652,6 +693,159 @@
             52
         ],
         "action": "Click",
+        "next": [
+            "panduan_zhujiemian"
+        ]
+    },
+    "日常抓鬼-第一轮": {
+        "pre_delay": 1000,
+        "action": "Key",
+        "key": [
+            61
+        ],
+        "post_delay": 1000,
+        "next": [
+            "日常抓鬼-点击钟馗"
+        ],
+        "interrupt": [
+            "打开小地图-钟馗-判断"
+        ]
+    },
+    "日常抓鬼-点击钟馗": {
+        "recognition": "OCR",
+        "expected": [
+            "钟馗",
+            "钟道",
+            "钟",
+            "道"
+        ],
+        "roi": [
+            357,
+            391,
+            72,
+            43
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "日常抓鬼-钟馗-捉鬼任务"
+        ]
+    },
+    "日常抓鬼-钟馗-捉鬼任务": {
+        "recognition": "OCR",
+        "expected": [
+            "捉鬼任务"
+        ],
+        "roi": [
+            931,
+            144,
+            310,
+            225
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "日常抓鬼-钟馗-捉鬼任务-开始"
+        ]
+    },
+    "日常抓鬼-钟馗-捉鬼任务-开始": {
+        "recognition": "OCR",
+        "expected": [
+            "日常-捉鬼"
+        ],
+        "roi": [
+            1032,
+            165,
+            247,
+            300
+        ],
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "日常抓鬼-第一轮结束"
+        ],
+        "interrupt": [
+            "战斗中-等待10秒"
+        ]
+    },
+    "日常抓鬼-第一轮结束": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "./zhuagui/zhuaguijiesu.png",
+            "./zhuagui/zhuaguijiesu2.png"
+        ],
+        "roi": [
+            401,
+            254,
+            475,
+            214
+        ],
+        "threshold": 0.8,
+        "next": [
+            "日常抓鬼-第二轮"
+        ]
+    },
+    "日常抓鬼-第二轮": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "roi": "日常抓鬼-第一轮结束",
+        "action": "Click",
+        "post_delay": 4000,
+        "next": [
+            "日常抓鬼-第二轮-抓鬼任务"
+        ]
+    },
+    "日常抓鬼-第二轮-抓鬼任务": {
+        "recognition": "OCR",
+        "expected": [
+            "捉鬼任务"
+        ],
+        "roi": [
+            931,
+            144,
+            310,
+            225
+        ],
+        "action": "Click",
+        "post_delay": 4000,
+        "next": [
+            "日常抓鬼-第二轮-抓鬼任务-开始"
+        ]
+    },
+    "日常抓鬼-第二轮-抓鬼任务-开始": {
+        "recognition": "OCR",
+        "expected": [
+            "日常-捉鬼"
+        ],
+        "roi": [
+            1032,
+            165,
+            247,
+            300
+        ],
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "日常抓鬼-第二轮-抓鬼任务-结束"
+        ],
+        "interrupt": [
+            "战斗中-等待10秒"
+        ]
+    },
+    "日常抓鬼-第二轮-抓鬼任务-结束": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "./zhuagui/zhuaguijiesu.png",
+            "./zhuagui/zhuaguijiesu2.png"
+        ],
+        "roi": [
+            401,
+            254,
+            475,
+            214
+        ],
         "next": [
             "panduan_zhujiemian"
         ]
