@@ -1,13 +1,13 @@
 {
-    "sanjieqiyuan": {
+    "kejuxiangshi": {
         "next": [
-            "主界面-三界奇缘"
+            "主界面-科举乡试"
         ],
         "interrupt": [
             "panduan_zhujiemian"
         ]
     },
-    "主界面-三界奇缘": {
+    "主界面-科举乡试": {
         "recognition": "TemplateMatch",
         "template": [
             "zonghe/jiahao.png",
@@ -29,13 +29,13 @@
         ],
         "post_wait_freezes": 100,
         "next": [
-            "活动-三界奇缘"
+            "活动-科举乡试"
         ],
         "interrupt": [
             "活动-界面-打开失败"
         ]
     },
-    "活动-三界奇缘": {
+    "活动-科举乡试": {
         "recognition": "TemplateMatch",
         "template": "zonghe/huodong_jiemian_panduan.png",
         "roi": [
@@ -45,19 +45,10 @@
             62
         ],
         "next": [
-            "活动-三界奇缘-点击日常活动"
+            "活动-科举乡试-点击日常活动"
         ]
     },
-    "活动-界面-打开失败": {
-        "post_delay": 1000,
-        "action": "Key",
-        "key": [
-            57,
-            31
-        ],
-        "post_wait_freezes": 100
-    },
-    "活动-三界奇缘-点击日常活动": {
+    "活动-科举乡试-点击日常活动": {
         "recognition": "OCR",
         "expected": [
             "日常活动"
@@ -71,10 +62,10 @@
         "action": "Click",
         "post_wait_freezes": 500,
         "next": [
-            "活动-三界奇缘-向上滑动到顶端"
+            "活动-科举乡试-向上滑动到顶端"
         ]
     },
-    "活动-三界奇缘-向上滑动到顶端": {
+    "活动-科举乡试-向上滑动到顶端": {
         "action": "MultiSwipe",
         "swipes": [
             {
@@ -110,88 +101,88 @@
         ],
         "post_delay": 500,
         "next": [
-            "活动-三界奇缘-开始",
-            "活动-三界奇缘-未到开始时间"
+            "活动-科举乡试-开始",
+            "活动-科举乡试-未到开始时间"
         ],
         "interrupt": [
             "baotu_huodong_down"
         ]
     },
-    "活动-三界奇缘-未到开始时间": {
+    "活动-科举乡试-未到开始时间": {
         "recognition": "TemplateMatch",
         "pre_delay": 200,
         "template": [
-            "richangdati/sanjieqiyuan_weikaishi.png",
-            "richangdati/sanjieqiyuan_weikaishi2.png"
+            "richangdati/kejuxiangshi_weikaishi.png"
         ],
+        "post_delay": 200,
         "next": [
             "panduan_zhujiemian"
         ]
     },
-    "活动-三界奇缘-开始": {
+    "活动-科举乡试-开始": {
         "recognition": "TemplateMatch",
         "template": [
-            "richangdati/sanjieqiyuan.png",
-            "richangdati/sanjieqiyuan2.png"
+            "richangdati/kejuxiangshi.png"
         ],
-        "threshold": 0.9,
+        "threshold": 0.8,
         "next": [
-            "活动-三界奇缘-开始-点击参加"
+            "活动-科举乡试-开始-点击参加"
         ]
     },
-    "活动-三界奇缘-开始-点击参加": {
+    "活动-科举乡试-开始-点击参加": {
         "recognition": "OCR",
         "expected": [
             "参加"
         ],
-        "roi": "活动-三界奇缘-开始",
+        "roi": "活动-科举乡试-开始",
         "action": "Click",
         "post_delay": 1000,
         "next": [
-            "活动-三界奇缘-进入答题界面"
+            "活动-科举乡试-进入答题界面"
         ]
     },
-    "活动-三界奇缘-进入答题界面": {
+    "活动-科举乡试-进入答题界面": {
         "recognition": "TemplateMatch",
-        "template": [
-            "richangdati\\sjqy_datijiemian.png"
-        ],
+        "template": "richangdati/kjxs_datijiemian.png",
         "roi": [
-            130,
-            211,
-            60,
-            213
+            528,
+            65,
+            244,
+            67
         ],
         "next": [
-            "活动-三界奇缘-结束"
+            "活动-科举乡试-结束"
         ],
         "interrupt": [
-            "活动-三界奇缘-开始答题_agent"
+            "活动-科举乡试-开始答题_普通"
         ]
     },
-    "活动-三界奇缘-结束": {
+    "活动-科举乡试-结束": {
         "recognition": "OCR",
         "expected": [
-            "恭喜少侠完成所有题目"
+            "学海无涯，少侠可要多多加油吖！"
         ],
         "roi": [
-            662,
-            413,
-            262,
-            43
+            580,
+            351,
+            407,
+            65
         ],
         "pre_delay": 200,
         "next": [
             "panduan_zhujiemian"
         ]
     },
-    "活动-三界奇缘-开始答题": {
+    "活动-科举乡试-开始答题_普通": {
+        "recognition": "OCR",
+        "expected": "A",
+        "roi": [
+            475,
+            313,
+            53,
+            75
+        ],
         "pre_delay": 1500,
-        "action": "Click",
-        "post_wait_freezes": 500
-    },
-    "活动-三界奇缘-开始答题_agent": {
-        "recognition": "Custom",
-        "custom_recognition": "sjqy_tiku"
+        "action": "Click"
     }
 }

@@ -180,5 +180,21 @@
         "custom_recognition": "my_reco_222",
         "action": "Custom",
         "custom_action": "my_action_111"
+    },
+    "自动寻路中-图片识别": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "zonghe/zidongxunlu1.png",
+            "zonghe/zidongxunlu2.png",
+            "zonghe/zidongxunlu3.png",
+            "zonghe/zidongxunlu4.png"
+        ],
+        "roi": [
+            257,
+            133,
+            770,
+            461
+        ],
+        "pre_delay": 3000
     }
 }

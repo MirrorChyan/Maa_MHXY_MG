@@ -78,7 +78,10 @@
         },
         {
             "name": "捉鬼任务",
-            "entry": "zhuoguirenwu"
+            "entry": "zhuoguirenwu",
+            "option": [
+                "抓鬼-队长-是否创建组队"
+            ]
         },
         {
             "name": "选项测试",
@@ -98,6 +101,10 @@
         {
             "name": "三界奇缘2",
             "entry": "sanjieqiyuan2"
+        },
+        {
+            "name": "科举乡试",
+            "entry": "kejuxiangshi"
         }
     ],
     "option": {
@@ -154,6 +161,26 @@
                 {
                     "name": "3副本",
                     "pipeline_override": {}
+                }
+            ]
+        },
+        "抓鬼-队长-是否创建组队": {
+            "cases": [
+                {
+                    "name": "不创建队伍",
+                    "pipeline_override": {
+                        "识别位置-长安城-抓鬼": {
+                            "next": [
+                                "打开小地图-钟馗"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "创建队伍",
+                    "pipeline_override": {
+                        "识别位置-长安城-抓鬼": {}
+                    }
                 }
             ]
         }
