@@ -116,7 +116,8 @@
             "合成阵法",
             "使用秘境材料",
             "使用过期物品",
-            "背包向上滑动1"
+            "背包向上滑动1",
+            "点击整理-interrupt一轮"
         ]
     },
     "使用红罗羹": {
@@ -398,6 +399,19 @@
         ],
         "action": "Click"
     },
+    "点击整理-interrupt一轮": {
+        "recognition": "OCR",
+        "expected": [
+            "整理"
+        ],
+        "roi": [
+            873,
+            609,
+            241,
+            77
+        ],
+        "action": "Click"
+    },
     "整理完成": {
         "recognition": "TemplateMatch",
         "template": [
@@ -405,10 +419,10 @@
             "beibao/beibao_diduan.png"
         ],
         "roi": [
-            894,
-            515,
-            211,
-            163
+            905,
+            543,
+            187,
+            94
         ],
         "threshold": 0.80,
         "pre_wait_freezes": 200,
