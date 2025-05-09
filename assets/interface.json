@@ -14,7 +14,7 @@
         }
     ],
     "agent": {
-        "child_exec": "{PROJECT_DIR}/Python312/python.exe",
+        "child_exec": "{PROJECT_DIR}/Python/python.exe",
         "child_args": [
             "{PROJECT_DIR}/agent/main.py"
         ]
@@ -95,15 +95,18 @@
             "entry": "chushoushanghui"
         },
         {
-            "name": "三界奇缘",
-            "entry": "sanjieqiyuan"
+            "name": "三界奇缘(已完成)",
+            "entry": "sanjieqiyuan",
+            "option": [
+                "是否选择题库"
+            ]
         },
         {
-            "name": "三界奇缘2",
+            "name": "三界奇缘2(测试)",
             "entry": "sanjieqiyuan2"
         },
         {
-            "name": "科举乡试",
+            "name": "科举乡试(已完成)",
             "entry": "kejuxiangshi"
         }
     ],
@@ -180,6 +183,30 @@
                     "name": "创建队伍",
                     "pipeline_override": {
                         "识别位置-长安城-抓鬼": {}
+                    }
+                }
+            ]
+        },
+        "是否选择题库": {
+            "cases": [
+                {
+                    "name": "不选择题库",
+                    "pipeline_override": {
+                        "活动-三界奇缘-进入答题界面": {
+                            "interrupt": [
+                                "活动-三界奇缘-开始答题"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "选择题库",
+                    "pipeline_override": {
+                        "活动-三界奇缘-进入答题界面": {
+                            "interrupt": [
+                                "活动-三界奇缘-开始答题_agent"
+                            ]
+                        }
                     }
                 }
             ]

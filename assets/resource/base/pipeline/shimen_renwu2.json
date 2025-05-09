@@ -90,6 +90,12 @@
     },
     "quwancheng2": {
         "recognition": "OCR",
+        "roi": [
+            414,
+            400,
+            183,
+            70
+        ],
         "expected": [
             "去完成"
         ],

@@ -166,7 +166,7 @@
             "活动-三界奇缘-结束"
         ],
         "interrupt": [
-            "活动-三界奇缘-开始答题_agent"
+            "活动-三界奇缘-开始答题"
         ]
     },
     "活动-三界奇缘-结束": {
@@ -186,7 +186,15 @@
         ]
     },
     "活动-三界奇缘-开始答题": {
-        "pre_delay": 1500,
+        "recognition": "TemplateMatch",
+        "template": "richangdati/sjqy_daan.png",
+        "roi": [
+            470,
+            346,
+            44,
+            51
+        ],
+        "pre_delay": 200,
         "action": "Click",
         "post_wait_freezes": 500
     },

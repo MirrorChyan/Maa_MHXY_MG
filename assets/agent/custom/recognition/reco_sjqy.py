@@ -208,8 +208,7 @@ class sjqy_tiku(CustomRecognition):
                                                                     }
                                                     }
                                 )
-                
-                logger.info("new_reco_detail为：{new_reco_detail}")
+                # logger.info("new_reco_detail为：{new_reco_detail}")
                 # logger.info(new_reco_detail.box)
                 if new_reco_detail:
                     box = new_reco_detail.box  # 假设box为(x, y, w, h)
