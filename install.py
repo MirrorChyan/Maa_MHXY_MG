@@ -74,6 +74,13 @@ def install_agent():
         working_dir /   "assets" /  "agent" / "requirements.txt",
         install_path,
      )
+
+def install_python():
+    shutil.copytree(
+        working_dir / "assets" / "python",
+        install_path / "python",
+        dirs_exist_ok=True,
+    )
      
 
 if __name__ == "__main__":
@@ -81,3 +88,4 @@ if __name__ == "__main__":
     install_resource()
     install_chores()
     install_agent()
+    install_python()
