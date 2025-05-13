@@ -27,6 +27,7 @@
         ]
     },
     "识别位置-东海湾-秘境": {
+        "pre_delay": 1000,
         "recognition": "OCR",
         "expected": [
             "东海湾"
@@ -42,7 +43,7 @@
         ]
     },
     "dakai_map": {
-        "pre_wait_freezes": 100,
+        "pre_delay": 1000,
         "action": "Key",
         "key": [
             57,
@@ -57,6 +58,7 @@
         ]
     },
     "dakai_map_panduan": {
+        "pre_delay": 1000,
         "inverse": true,
         "recognition": "TemplateMatch",
         "template": "zonghe/ditu_jiemian_panduan.png",
@@ -74,13 +76,14 @@
         "post_delay": 1000
     },
     "chuansong_donghaiwan": {
+        "pre_delay": 1000,
         "recognition": "TemplateMatch",
         "template": "mijing/ditu_donghaiwan.png",
-        "pre_delay": 1000,
+        "post_delay": 500,
         "action": "Click"
     },
     "click_tab_mijing": {
-        "pre_wait_freezes": 100,
+        "pre_delay": 500,
         "action": "Key",
         "key": [
             61
@@ -95,6 +98,7 @@
     },
     "click_tab_mijing_panduan": {
         "inverse": true,
+        "pre_delay": 500,
         "recognition": "TemplateMatch",
         "template": "mijing/donghaiwan_tab_panduan.png",
         "roi": [

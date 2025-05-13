@@ -48,6 +48,7 @@
             1,
             1
         ],
+        "post_delay": 500,
         "next": [
             "shimen_renwu2_dianji",
             "shimen_renwu2_dianji2"
@@ -57,7 +58,7 @@
         "pre_delay": 500,
         "recognition": "OCR",
         "expected": [
-            "日常-师门任务"
+            "师门任务"
         ],
         "roi": [
             1030,
@@ -76,6 +77,7 @@
         "expected": [
             "师门"
         ],
+        "threshold": 0.9,
         "roi": [
             1030,
             180,
@@ -89,16 +91,18 @@
         ]
     },
     "quwancheng2": {
+        "pre_delay": 200,
         "recognition": "OCR",
         "roi": [
-            414,
-            400,
-            183,
-            70
+            398,
+            408,
+            704,
+            59
         ],
         "expected": [
             "去完成"
         ],
+        "threshold": 0.9,
         "action": "Click",
         "next": [
             "shimenwancheng-九转天阶遮挡",
