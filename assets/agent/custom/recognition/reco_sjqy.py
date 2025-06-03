@@ -9,9 +9,9 @@ from maa.context import Context
 from fuzzywuzzy import fuzz, process
 from typing import Dict, List, Tuple
 from utils import logger
-import json
 import time
 
+from .searchAnswer import SearchQuestions
 
 @AgentServer.custom_recognition("reco2")
 class reco2_sjqy(CustomRecognition):
@@ -23,31 +23,7 @@ class reco2_sjqy(CustomRecognition):
         logger.info("进入reco2_sjqy")
         return CustomRecognition.AnalyzeResult(box=(6,134,57,46),detail="福利")
 
-        # reco_detail = context.run_recognition(
-        #     "福利",  # 假设这是用于识别"福利"文字的识别器名称
-        #     argv.image,
-        #     pipeline_override={"福利": {"roi": [6,134,57,46]}},  # 示例ROI区域
-        # )
-        # logger.info(reco_detail)
-        # # 根据reco_detail中的信息判断是否找到了"福利"文字
-        # if "福利" in reco_detail.detail:
-        #     # 如果找到了"福利"文字，计算中心点并执行点击
-        #     box = reco_detail.box  # 假设box为(x_min, y_min, x_max, y_max)
-        #     center_x = box[0] + box[2] // 2
-        #     center_y = box[1] + box[3] // 2 
 
-        #     click_job = context.tasker.controller.post_click(center_x, center_y)
-        #     click_job.wait()  # 等待点击操作完成
-
-        #     # 返回分析结果
-        #     return CustomRecognition.AnalyzeResult(
-        #         box=box, detail="Found '福利' and clicked!"
-        #     )
-        # else:
-        #     # 如果没有找到"福利"文字，返回相应的结果
-        #     return CustomRecognition.AnalyzeResult(
-        #         box=(0, 0, 0, 0), detail="Did not find '福利'."
-        #     )
 
 @AgentServer.custom_recognition("reco3")
 class reco2_sjqy(CustomRecognition):
@@ -87,39 +63,6 @@ class reco2_sjqy(CustomRecognition):
         # box=(6,134,57,46),detail="福利"
         return CustomRecognition.AnalyzeResult(box=(6,134,57,46),detail="福利")
     
-
-
-        # # image array(BGR)
-        # screen_array = context.tasker.controller.post_screencap().wait().get()
-        # # BGR2RGB
-        # if len(screen_array.shape) == 3 and screen_array.shape[2] == 3:
-        #     rgb_array = screen_array[:, :, ::-1]
-        # else:
-        #     rgb_array = screen_array
-        #     logger.warning("当前截图并非三通道")
-
-        # img = Image.fromarray(rgb_array)
-        # # img.save(f"./1.png")
-        # img = context.tasker.controller.cached_image
-
-# 读取JSON文件
-# def load_question_bank(file_path: str) -> Dict[str, List[str]]:
-#     """加载问题库JSON文件"""
-#     try:
-#         with open(file_path, 'r', encoding='utf-8') as f:
-#             return json.load(f)
-#     except FileNotFoundError:
-#         print(f"错误：文件 {file_path} 未找到")
-#         return {}
-#     except json.JSONDecodeError:
-#         print(f"错误：文件 {file_path} 不是有效的JSON格式")
-#         return {}
-
-# # 加载问题库数据
-# rapath = f'D:\\codeWork\\Maa_MHXY_MG\\assets\\agent\\custom\\recognition\\question_bank.json'
-# question_bank = load_question_bank(rapath)
-# logger.info(f"问题库数据: {question_bank}")
-
 
 def fuzzy_search_question_bank(
     keyword: str, 
@@ -193,9 +136,11 @@ class sjqy_tiku(CustomRecognition):
             if text not in excluded_texts:   
                 logger.info(f"问题为:"+text)
                 # 在题库中搜索答案
-                results_value, results_len = fuzzy_search_question_bank(text, question_bank)
-                logger.info(f"搜索题库返回结果:"+results_value)
-                logger.info(f"搜索题库返回结果个数:"+str(results_len))
+                # results_value, results_len = fuzzy_search_question_bank(text, question_bank)
+                # logger.info(f"搜索题库返回结果:"+results_value)
+                # logger.info(f"搜索题库返回结果个数:"+str(results_len))
+
+                results_value, confidence ,match_type = SearchQuestions(text)
                 # if results_len:#搜索到结果进入循环，否则直接点击第一个
                 #     for i in range(results_len):#按照答案个数循环ocr并点击
                 new_context = context.clone()
@@ -208,7 +153,7 @@ class sjqy_tiku(CustomRecognition):
                                                                     }
                                                     }
                                 )
-                # logger.info("new_reco_detail为：{new_reco_detail}")
+                logger.info("new_reco_detail为：{new_reco_detail}")
                 # logger.info(new_reco_detail.box)
                 if new_reco_detail:
                     box = new_reco_detail.box  # 假设box为(x, y, w, h)
@@ -221,9 +166,14 @@ class sjqy_tiku(CustomRecognition):
                         # else:
                         #     context.tasker.controller.post_click(500, 344).wait()
                         #     time.sleep(1.5)
-                # else:
-                    # context.tasker.controller.post_click(500, 344).wait()
-                    # time.sleep(1.5)
+                #如果new_reco_detail返回值为空
+                
+                
+                    
+                # else:#如果没有识别到答案，点击第一个
+                #     time.sleep(3)
+                #     context.tasker.controller.post_click(500, 344).wait()
+                #     time.sleep(3)
                     # return CustomRecognition.AnalyzeResult(box=reco_detail.box,detail="") 
            
         # logger.info(reco_detail.all_results[0].text)
