@@ -124,6 +124,13 @@
             "richangdati/sanjieqiyuan_weikaishi.png",
             "richangdati/sanjieqiyuan_weikaishi2.png"
         ],
+        "threshold": 0.8,
+        "roi": [
+            316,
+            76,
+            834,
+            433
+        ],
         "next": [
             "panduan_zhujiemian"
         ]
@@ -133,6 +140,12 @@
         "template": [
             "richangdati/sanjieqiyuan.png",
             "richangdati/sanjieqiyuan2.png"
+        ],
+        "roi": [
+            316,
+            76,
+            834,
+            433
         ],
         "threshold": 0.9,
         "next": [

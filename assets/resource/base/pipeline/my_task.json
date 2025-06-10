@@ -147,7 +147,7 @@
         ],
         "action": "Click"
     },
-    "战斗中-等待10秒": {
+    "战斗中-等待100秒": {
         "recognition": "TemplateMatch",
         "template": [
             "zhandou/zidong.png",

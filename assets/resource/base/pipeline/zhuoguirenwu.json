@@ -375,7 +375,10 @@
     },
     "展开-首页任务栏": {
         "recognition": "TemplateMatch",
-        "template": "zonghe/rwl_suojin.png",
+        "template": [
+            "zonghe/rwl_suojin.png",
+            "zonghe/rwl_suojin2.png"
+        ],
         "roi": [
             1219,
             114,
@@ -455,7 +458,7 @@
         ],
         "interrupt": [
             "自动寻路中-图片识别",
-            "战斗中-等待10秒"
+            "战斗中-等待100秒"
         ]
     },
     "抓鬼一轮完成": {
@@ -476,7 +479,7 @@
         ]
     },
     "踢出离线人员": {},
-    "抓鬼战斗中-等待10秒-识别人员数量": {
+    "抓鬼战斗中-等待100秒-识别人员数量": {
         "recognition": "TemplateMatch",
         "template": [
             "zhandou/zidong.png",

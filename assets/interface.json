@@ -21,12 +21,8 @@
     },
     "task": [
         {
-            "name": "普通任务（测试）",
-            "entry": "MyTask1"
-        },
-        {
-            "name": "启动游戏（测试）",
-            "entry": "startgame"
+            "name": "福利签到(已完成)",
+            "entry": "fuli_qiandao"
         },
         {
             "name": "帮派签到(已完成)",
@@ -37,16 +33,8 @@
             "entry": "zhengli_baibao"
         },
         {
-            "name": "福利签到(已完成)",
-            "entry": "fuli_qiandao"
-        },
-        {
-            "name": "师门任务（测试）",
+            "name": "师门任务(已完成)",
             "entry": "shimen_renwu"
-        },
-        {
-            "name": "师门任务2(已完成)",
-            "entry": "shimen_renwu2"
         },
         {
             "name": "秘境降妖（已完成）",
@@ -61,8 +49,27 @@
             "entry": "wabaotu_qingli"
         },
         {
+            "name": "出售商会(已完成)",
+            "entry": "chushoushanghui"
+        },
+        {
             "name": "运镖普通(已完成)",
             "entry": "yunbiao_renwu"
+        },
+        {
+            "name": "三界奇缘(已完成)",
+            "entry": "sanjieqiyuan",
+            "option": [
+                "是否选择题库"
+            ]
+        },
+        {
+            "name": "科举乡试(已完成)",
+            "entry": "kejuxiangshi"
+        },
+        {
+            "name": "活跃领取(已完成)",
+            "entry": "huoyue_lingqu"
         },
         {
             "name": "副本320(69)(已完成)",
@@ -73,64 +80,14 @@
             ]
         },
         {
-            "name": "活跃领取(已完成)",
-            "entry": "huoyue_lingqu"
-        },
-        {
             "name": "捉鬼任务-无限(已完成)",
             "entry": "zhuoguirenwu",
             "option": [
                 "抓鬼-队长-是否创建组队"
             ]
-        },
-        {
-            "name": "选项测试（测试）",
-            "entry": "xuanxiangceshi",
-            "option": [
-                "地图跳转"
-            ]
-        },
-        {
-            "name": "出售商会(已完成)",
-            "entry": "chushoushanghui"
-        },
-        {
-            "name": "三界奇缘(已完成)",
-            "entry": "sanjieqiyuan",
-            "option": [
-                "是否选择题库"
-            ]
-        },
-        {
-            "name": "三界奇缘2(测试)",
-            "entry": "sanjieqiyuan2"
-        },
-        {
-            "name": "科举乡试(已完成)",
-            "entry": "kejuxiangshi"
         }
     ],
     "option": {
-        "地图跳转": {
-            "cases": [
-                {
-                    "name": "长安城",
-                    "pipeline_override": {
-                        "跳转地图选择": {}
-                    }
-                },
-                {
-                    "name": "东海湾",
-                    "pipeline_override": {
-                        "跳转地图选择": {
-                            "template": [
-                                "mijing/ditu_donghaiwan.png"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
         "创建队伍-副本": {
             "cases": [
                 {
