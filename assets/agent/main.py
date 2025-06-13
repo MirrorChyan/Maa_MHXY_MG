@@ -128,7 +128,7 @@ def agent():
     Toolkit.init_option("./")
 
     socket_id = sys.argv[-1]
-    socket_id = '123456'
+    # socket_id = '123456'
     AgentServer.start_up(socket_id)
     logger.info("AgentSever 启动")
     logger.info("id:"+socket_id)
