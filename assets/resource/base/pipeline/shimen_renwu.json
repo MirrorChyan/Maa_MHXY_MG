@@ -1,5 +1,10 @@
 {
     "shimen_renwu": {
+        "next": [
+            "师门任务开始"
+        ]
+    },
+    "师门任务开始": {
         "pre_delay": 200,
         "next": [
             "shimen_renwu2_dianji",
@@ -27,6 +32,9 @@
         "action": "Click",
         "next": [
             "师门-点击去完成"
+        ],
+        "interrupt": [
+            "shimen_renwu2_dianji"
         ]
     },
     "shimen_renwu2_dianji2": {

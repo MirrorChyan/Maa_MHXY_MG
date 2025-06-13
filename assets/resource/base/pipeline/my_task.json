@@ -102,6 +102,7 @@
             157
         ],
         "inverse": true,
+        "pre_delay": 500,
         "action": "Key",
         "post_wait_freezes": 1,
         "key": 111,
