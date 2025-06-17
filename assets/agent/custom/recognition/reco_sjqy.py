@@ -64,46 +64,6 @@ class reco2_sjqy(CustomRecognition):
         return CustomRecognition.AnalyzeResult(box=(6,134,57,46),detail="福利")
     
 
-def fuzzy_search_question_bank(
-    keyword: str, 
-    bank_data: Dict[str, List[str]], 
-    cutoff: int = 80
-) -> Tuple[str, int]:
-    """模糊搜索问题库
-    
-    参数:
-        keyword: 搜索关键词
-        bank_data: 问题库数据
-        cutoff: 相似度阈值(0-100)
-        
-    返回:
-        (格式化结果字符串, 结果数量)
-    """
-    results = set()  # 使用集合避免重复
-    keyword_lower = keyword.lower()
-    
-    # 对问题进行模糊匹配
-    questions = list(bank_data.keys())
-    question_matches = process.extract(
-        keyword_lower, 
-        questions, 
-        scorer=fuzz.partial_ratio, 
-        limit=len(questions)
-    )
-    
-    for question, score in question_matches:
-        if score >= cutoff:
-            results.update(bank_data[question])
-
-    # 对答案进行模糊匹配
-    for answers in bank_data.values():
-        for answer in answers:
-            answer_score = fuzz.partial_ratio(keyword_lower, answer.lower())
-            if answer_score >= cutoff:
-                results.add(answer)
-    
-    formatted_results = json.dumps(list(results), ensure_ascii=False)
-    return formatted_results, len(results)
 
 @AgentServer.custom_recognition("sjqy_tiku")
 class sjqy_tiku(CustomRecognition):
@@ -114,109 +74,131 @@ class sjqy_tiku(CustomRecognition):
          argv: CustomRecognition.AnalyzeArg,
      ) -> CustomRecognition.AnalyzeResult:
         logger.info("进入三界奇缘答题agent")
-        #识别三界奇缘题目
-        reco_detail = context.run_recognition(
-            "三界奇缘题目",
-            argv.image,
-            pipeline_override={"三界奇缘题目": {"roi" : [477,68,613,47],
-                                                "expected":[""],
-                                                "recognition": "OCR"
-                                                }
-                                }
-            )
-        #识别题目返回值
-        # logger.info(reco_detail)
+
+        i = 0
         m= ""
-        n=0
-        for res in reco_detail.all_results:#识别的结果在题库中搜索问题答案
-            text =res.text
-            # logger.info(len(text))
-            excluded_texts = {#排除的文本
-                '第1题：', '第2题：', '第3题：', '第4题：', '第5题：', 
-                '第6题：', '第7题：', '第8题：', '第9题：', '第10题：', 
-                '(1/3)', '(2/3)', '(3/3)', '(1/2)', '(2/2)', '(1/1)'
-            }
-            if text not in excluded_texts:   
-                logger.info(f"问题为:"+text)
-                # 在题库中搜索答案
-                # results_value, results_len = fuzzy_search_question_bank(text, question_bank)
-                # logger.info(f"搜索题库返回结果:"+results_value)
-                # logger.info(f"搜索题库返回结果个数:"+str(results_len))
-                #单个问题限制最多次数
-                if m == text:
-                    n = n+1
-                    logger.info(f"相同次数为:"+str(n))
-                    results_value, confidence ,match_type = SearchQuestions(text)
-
-                    if  results_value == "未找到匹配的问题":
-                        logger.info(f"题库中没有找到答案，问题为:"+text)
-                        
-                        n = n+1
-                        continue
-                    new_context = context.clone()
-                    new_reco_detail = new_context.run_recognition(
-                                    "三界奇缘答案位置",
-                                    argv.image,
-                                    pipeline_override={"三界奇缘答案位置": {"roi" : [475,340,613,49],
-                                                                        "expected":results_value,
-                                                                        "recognition": "OCR"
-                                                                        }
-                                                        }
-                                    )
-                    # logger.info("new_reco_detail为：{new_reco_detail}")
-                    # logger.info(new_reco_detail.box)
-                    if new_reco_detail:
-                        box = new_reco_detail.box  # 假设box为(x, y, w, h)
-                        center_x = box[0] + box[2] // 2
-                        center_y = box[1] + box[3] // 2 
-                        time.sleep(2)
-                        click_job = new_context.tasker.controller.post_click(center_x, center_y)
-                        click_job.wait()  # 等待点击操作完成
-                        time.sleep(2)   
-                elif m != text:
-                    m = text
-                    #查询题库并点击
-                    results_value, confidence ,match_type = SearchQuestions(text)
+        n = 0
+        while i < 30:
+            i = i+1
+            logger.info(f"第{i}次识别三界奇缘题目")
+            #识别三界奇缘题目
+            image1 = context.tasker.controller.post_screencap().wait().get()
+            reco_detail = context.run_recognition(
+                "三界奇缘题目",
+                image1,
+                
+                pipeline_override={"三界奇缘题目": {"roi" : [477,68,613,47],
+                                                    "expected":[""],
+                                                    "recognition": "OCR"
+                                                    }
+                                    }
+                )
+            #识别题目返回值
+            # logger.info(reco_detail)
+            # 没有识别到题目
+            if not reco_detail or not reco_detail.all_results:
+                logger.info("没有识别到题目")
+                return CustomRecognition.AnalyzeResult(box=(0,0,0,0),detail="未识别到题目")
+            
+            
+            for res in reco_detail.all_results:#识别的结果在题库中搜索问题答案
+                text =res.text
+                # logger.info(len(text))
+                excluded_texts = {#排除的文本
+                    '第1题：', '第2题：', '第3题：', '第4题：', '第5题：', 
+                    '第6题：', '第7题：', '第8题：', '第9题：', '第10题：', 
+                    '(1/3)', '(2/3)', '(3/3)', '(1/2)', '(2/2)', '(1/1)',
+                    '（1/3）', '（2/3）', '（3/3）', '（1/2）','（2/2）', '（1/1）',
+                    '(1/3）', '(2/3）', '(3/3）', '(1/2）', '(2/2）', '(1/1）',
+                    '（1/3)', '（2/3)', '（3/3)', '（1/2)','（2/2)', '（1/1)'
+                }
+                if text not in excluded_texts:   
+                    logger.info(f"问题为:"+text)
+                    # 在题库中搜索答案
+                    # results_value, results_len = fuzzy_search_question_bank(text, question_bank)
+                    # logger.info(f"搜索题库返回结果:"+results_value)
+                    # logger.info(f"搜索题库返回结果个数:"+str(results_len))
                     
-                    if results_value == "未找到匹配的问题":
-                        logger.info(f"在不相等中，题库中没有找到答案，问题为:"+text)
-                        # 如果题库中没有找到答案，点击第一个答案
+                    #单个问题限制最多次数
+                    if n>2:   
+                        logger.info(f"多次识别本问题失败，默认点击第一个，失败问题为:"+m)
+                        n=0
+                        time.sleep(2)
+                        context.tasker.controller.post_click(500, 344).wait()
+                        time.sleep(1)
+                    elif m != text:
+                        m = text
+                        #查询题库并点击
+                        results_value, confidence ,match_type = SearchQuestions(text)
+                        
+                        if results_value == "未找到匹配的问题":
+                            logger.info(f"在不相等中，题库中没有找到答案，问题为:"+text)
+                            # 如果题库中没有找到答案，点击第一个答案
+                            n = n+1
+                            logger.info(f"单次问题失败次数："+str(n))
+                            continue
+                        new_context = context.clone()
+                        image2 = new_context.tasker.controller.post_screencap().wait().get()
+                        new_reco_detail = new_context.run_recognition(
+                                        "三界奇缘答案位置",
+                                        image2,
+                                        pipeline_override={"三界奇缘答案位置": {"roi" : [475,340,613,49],
+                                                                            "expected":results_value,
+                                                                            "recognition": "OCR"
+                                                                            }
+                                                            }
+                                        )
+                        # logger.info("new_reco_detail为：{new_reco_detail}")
+                        # logger.info(new_reco_detail.box)
+                        if new_reco_detail:
+                            box = new_reco_detail.box  # 假设box为(x, y, w, h)
+                            center_x = box[0] + box[2] // 2
+                            center_y = box[1] + box[3] // 2 
+                            time.sleep(2)
+                            click_job = new_context.tasker.controller.post_click(center_x, center_y)
+                            click_job.wait()  # 等待点击操作完成
+                            time.sleep(2)
+                                # else:
+                                #     context.tasker.controller.post_click(500, 344).wait()
+                                #     time.sleep(1.5)
+                    elif m == text:
                         n = n+1
-                        continue
-                    new_context = context.clone()
-                    new_reco_detail = new_context.run_recognition(
-                                    "三界奇缘答案位置",
-                                    argv.image,
-                                    pipeline_override={"三界奇缘答案位置": {"roi" : [475,340,613,49],
-                                                                        "expected":results_value,
-                                                                        "recognition": "OCR"
-                                                                        }
-                                                        }
-                                    )
-                    # logger.info("new_reco_detail为：{new_reco_detail}")
-                    # logger.info(new_reco_detail.box)
-                    if new_reco_detail:
-                        box = new_reco_detail.box  # 假设box为(x, y, w, h)
-                        center_x = box[0] + box[2] // 2
-                        center_y = box[1] + box[3] // 2 
-                        time.sleep(2)
-                        click_job = new_context.tasker.controller.post_click(center_x, center_y)
-                        click_job.wait()  # 等待点击操作完成
-                        time.sleep(2)
-                            # else:
-                            #     context.tasker.controller.post_click(500, 344).wait()
-                            #     time.sleep(1.5)
-                    #如果new_reco_detail返回值为空
-                elif n>9:   
-                    logger.info(f"多次识别本问题失败，问题为:"+m)
-                    n=0
-                    time.sleep(1)
-                    context.tasker.controller.post_click(500, 344).wait()
-                    time.sleep(1)
+                        logger.info(f"相同次数为:"+str(n))
+                        results_value, confidence ,match_type = SearchQuestions(text)
 
-        # logger.info(reco_detail.all_results[0].text)
-        # logger.info(reco_detail)
-        return CustomRecognition.AnalyzeResult(box=reco_detail.box,detail="")
+                        if  results_value == "未找到匹配的问题":
+                            logger.info(f"题库中没有找到答案，问题为:"+text)
+                            n = n+1
+                            logger.info(f"单次问题失败次数"+str(n))
+                            continue
+                        new_context = context.clone()
+                        image2 = new_context.tasker.controller.post_screencap().wait().get()
+                        new_reco_detail = new_context.run_recognition(
+                                        "三界奇缘答案位置",
+                                        image2,
+                                        pipeline_override={"三界奇缘答案位置": {"roi" : [475,340,613,49],
+                                                                            "expected":results_value,
+                                                                            "recognition": "OCR"
+                                                                            }
+                                                            }
+                                        )
+                        # logger.info("new_reco_detail为：{new_reco_detail}")
+                        # logger.info(new_reco_detail.box)
+                        if new_reco_detail:
+                            box = new_reco_detail.box  # 假设box为(x, y, w, h)
+                            center_x = box[0] + box[2] // 2
+                            center_y = box[1] + box[3] // 2 
+                            time.sleep(2)
+                            click_job = new_context.tasker.controller.post_click(center_x, center_y)
+                            click_job.wait()  # 等待点击操作完成
+                            time.sleep(2)   
+                    
+                        
+                    
+
+            # logger.info(reco_detail.all_results[0].text)
+            # logger.info(reco_detail)
+            # return CustomRecognition.AnalyzeResult(box=reco_detail.box,detail="")
 
 
 
