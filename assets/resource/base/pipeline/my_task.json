@@ -66,19 +66,20 @@
             111
         ]
     },
-    "zhujiemian_moban": {
+    "主界面": {
         "recognition": "TemplateMatch",
         "template": [
+            "zonghe/jiahao.png",
             "zonghe/chenghao.png",
-            "zonghe/jiahao.png"
+            "zonghe/baoguo.png",
+            "zonghe/baoguo_man.png"
         ],
         "roi": [
-            1206,
-            637,
-            66,
-            57
-        ],
-        "action": "Click"
+            1197,
+            540,
+            78,
+            157
+        ]
     },
     "panduan_zhujiemian": {
         "next": [
@@ -102,7 +103,7 @@
             157
         ],
         "inverse": true,
-        "pre_delay": 500,
+        "pre_delay": 800,
         "action": "Key",
         "post_wait_freezes": 1,
         "key": 111,
@@ -197,5 +198,43 @@
             461
         ],
         "pre_delay": 3000
+    },
+    "计数器": {
+        "action": "Custom",
+        "custom_action": "count",
+        "custom_action_param": {
+            "count": 0,
+            "target_count": 4,
+            "nextTask": "panduan_zhujiemian",
+            "LoopNode": "123"
+        }
+    },
+    "123": {
+        "next": [
+            "使用红罗羹",
+            "使用绿芦羹",
+            "使用心魔宝珠",
+            "合成阵法",
+            "使用秘境材料",
+            "使用过期物品",
+            "背包向上滑动1"
+        ]
+    },
+    "计数器2": {
+        "action": "Custom",
+        "custom_action": "countGlobal",
+        "custom_action_param": {
+            "target_count": 4,
+            "nextTask": "panduan_zhujiemian",
+            "LoopNode": "baotu_huodong_down"
+        }
+    },
+    "mk": {
+        "next": [
+            "fuli_qiandao"
+        ],
+        "interrupt": [
+            "计数器2"
+        ]
     }
 }

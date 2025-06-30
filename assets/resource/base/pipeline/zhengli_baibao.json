@@ -107,7 +107,8 @@
         ],
         "action": "Click",
         "next": [
-            "整理完成"
+            "整理完成",
+            "主界面"
         ],
         "interrupt": [
             "使用红罗羹",
@@ -116,9 +117,20 @@
             "合成阵法",
             "使用秘境材料",
             "使用过期物品",
-            "背包向上滑动1",
-            "点击整理-interrupt一轮"
+            "计数器-背包滑动次数10"
         ]
+    },
+    "计数器-背包滑动次数10": {
+        "action": "Custom",
+        "custom_action": "countGlobal",
+        "custom_action_param": {
+            "target_count": 10,
+            "nextTask": "panduan_zhujiemian",
+            "LoopNode": "背包向上滑动1"
+        }
+    },
+    "整理10次": {
+        "next": []
     },
     "使用红罗羹": {
         "post_delay": 200,
@@ -425,7 +437,6 @@
             94
         ],
         "threshold": 0.80,
-        "pre_wait_freezes": 200,
         "next": [
             "panduan_zhujiemian"
         ]

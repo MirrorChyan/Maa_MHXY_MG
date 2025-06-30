@@ -1,3 +1,2 @@
 from .sanjieqiyuan import *
-
-__all__ = ["sanjie"]
+from .count import *
