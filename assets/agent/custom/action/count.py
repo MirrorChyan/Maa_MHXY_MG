@@ -64,10 +64,11 @@ class countGlobal(CustomAction):
     "custom_action_param": {
             "target_count": 4,
             "nextTask": "panduan_zhujiemian",
-            "LoopNode": ["背包向上滑动1"]
+            "LoopNode": "背包向上滑动1"
         }
-        target_count: 目标次数
-        nextTask: 完成目标次数后，执行下一任务节点   
+        target_count: 目标次数，必须
+        nextTask: 完成目标次数后，执行下一任务节点 ，必须
+        LoopNode: 未达到目标次数，可执行节点，非必须
     """
     def run(
         self,

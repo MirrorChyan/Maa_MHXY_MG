@@ -9,7 +9,7 @@ import re
 class LocalStorage:
     # 存储文件路径
     agent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    config_dir = os.path.join(agent_dir, "config")
+    config_dir = os.path.join(agent_dir, "data")
     storage_path = os.path.join(config_dir, "mnma_storage.json")
 
     # 检查并确保存储文件存在

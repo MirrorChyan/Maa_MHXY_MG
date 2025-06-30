@@ -74,6 +74,7 @@ def install_agent():
         working_dir /   "assets" /  "agent" / "requirements.txt",
         install_path,
      )
+     
 
 def install_python():
     shutil.copytree(
