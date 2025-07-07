@@ -10,6 +10,7 @@
 </div>
 
 ## 功能介绍
+因69以下账号操作逻辑的不同，所以本项目对69以下小号适配存在问题，请等后续完善。
 
 ### 已完成
 
@@ -63,6 +64,13 @@ _✨ 本项目是一个基于WPF框架开发的用户界面，旨在提供类似
 
 本项目仅供学习参考
 
+## How to build
+
+[开发文档](./docs/二次开发.md)
+
+## 开发相关
+
+- [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
 
 ## 交流群
  - 交流反馈 QQ群：953819042

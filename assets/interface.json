@@ -85,6 +85,16 @@
             "option": [
                 "抓鬼-队长-是否创建组队"
             ]
+        },
+        {
+            "name": "自动切号(界面独有功能)",
+            "entry": "auto_switch",
+            "advanced": [
+                "输入账号",
+                "输入密码",
+                "输入角色名"
+            ],
+            "doc": "请在设置-高级-输入账号、密码、角色名后使用"
         }
     ],
     "option": {
@@ -167,6 +177,50 @@
                     }
                 }
             ]
+        }
+    },
+    "advanced": {
+        "输入文本": {
+            "field": "text",
+            "type": "string",
+            "default": "nihao",
+            "pipeline_override": {
+                "shuru": {
+                    "input_text": "{text}"
+                }
+            }
+        },
+        "输入账号": {
+            "field": "zhanghao",
+            "type": "string",
+            "default": "",
+            "pipeline_override": {
+                "输入账号-输入账号内容": {
+                    "input_text": "{zhanghao}"
+                }
+            }
+        },
+        "输入密码": {
+            "field": "mima",
+            "type": "string",
+            "default": "",
+            "pipeline_override": {
+                "输入密码-输入密码内容": {
+                    "input_text": "{mima}"
+                }
+            }
+        },
+        "输入角色名": {
+            "field": "role_name",
+            "type": "string",
+            "default": "",
+            "pipeline_override": {
+                "点击已有角色-选择角色": {
+                    "expected": [
+                        "{role_name}"
+                    ]
+                }
+            }
         }
     }
 }
