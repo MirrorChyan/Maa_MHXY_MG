@@ -48,11 +48,13 @@
 
 本项目由以下相关库强力驱动！
 - **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** \
-_✨ 基于图像识别的自动化黑盒测试框架 ✨_ 
+ 基于图像识别的自动化黑盒测试框架 
 - **[MaaPracticeBoilerplate](https://github.com/MaaXYZ/MaaPracticeBoilerplate)** \
-_✨ 本仓库为 MaaFramework 所提供的项目模板，开发者可基于此模板直接创建自己的 MaaXXX 项目。✨_ 
-- **[MFAWPF](https://github.com/SweetSmellFox/MFAWPF)** \
-_✨ 本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能✨_ 
+ 本仓库为 MaaFramework 所提供的项目模板，开发者可基于此模板直接创建自己的 MaaXXX 项目。
+- ~~**[MFAWPF](https://github.com/SweetSmellFox/MFAWPF)**~~ \
+~~本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能~~
+[MFAAvalonia](https://github.com/SweetSmellFox/MFAAvalonia)\
+基于 Avalonia 的 MAAFramework 通用 GUI 项目
 
 <!-- 感谢以下开发者对本项目作出的贡献:
 
