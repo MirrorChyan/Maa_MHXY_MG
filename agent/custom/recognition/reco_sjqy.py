@@ -11,6 +11,7 @@ from typing import Dict, List, Tuple
 # from assets.agent.utils.logger import logger
 from utils import logger
 import time
+import re
 
 from .searchAnswer import SearchQuestions
 
@@ -88,7 +89,7 @@ class sjqy_tiku(CustomRecognition):
                 "三界奇缘题目",
                 image1,
                 
-                pipeline_override={"三界奇缘题目": {"roi" : [477,68,613,47],
+                pipeline_override={"三界奇缘题目": {"roi" : [452,2,655,240],
                                                     "expected":[""],
                                                     "recognition": "OCR"
                                                     }
@@ -105,6 +106,11 @@ class sjqy_tiku(CustomRecognition):
             for res in reco_detail.all_results:#识别的结果在题库中搜索问题答案
                 text =res.text
                 # logger.info(len(text))
+                #使用正则去除“第*题”和括号
+                pattern = r'第\d+题：|[（(]\d+/\d+[）)]'
+                def clean_string(s):
+                    return re.sub(pattern, '', s).strip()
+                text = clean_string(text)
                 excluded_texts = {#排除的文本
                     '第1题：', '第2题：', '第3题：', '第4题：', '第5题：', 
                     '第6题：', '第7题：', '第8题：', '第9题：', '第10题：', 
@@ -143,7 +149,7 @@ class sjqy_tiku(CustomRecognition):
                         new_reco_detail = new_context.run_recognition(
                                         "三界奇缘答案位置",
                                         image2,
-                                        pipeline_override={"三界奇缘答案位置": {"roi" : [475,340,613,49],
+                                        pipeline_override={"三界奇缘答案位置": {"roi" : [439,218,678,212],
                                                                             "expected":results_value,
                                                                             "recognition": "OCR"
                                                                             }
@@ -177,7 +183,7 @@ class sjqy_tiku(CustomRecognition):
                         new_reco_detail = new_context.run_recognition(
                                         "三界奇缘答案位置",
                                         image2,
-                                        pipeline_override={"三界奇缘答案位置": {"roi" : [475,340,613,49],
+                                        pipeline_override={"三界奇缘答案位置": {"roi" : [439,218,678,212],
                                                                             "expected":results_value,
                                                                             "recognition": "OCR"
                                                                             }
