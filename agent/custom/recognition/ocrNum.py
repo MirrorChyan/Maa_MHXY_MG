@@ -20,7 +20,7 @@ class OCRNum(CustomRecognition):
             "识别活跃度",
             image1,
             pipeline_override={
-                "识别活跃度":{"roi" : [268,500,901,154],
+                "识别活跃度":{"roi" : [311,500,917,152],
                               "expected":[""],
                               "recognition": "OCR"
                             }
@@ -33,7 +33,8 @@ class OCRNum(CustomRecognition):
 
                 return CustomRecognition.AnalyzeResult(box=(0,0,0,0),detail="没有识别到活跃度")
         for res in recoNum.all_results:
-            num = int(res.text)
+            # num = int(res.text)
+            num = OCRNum.convert_to_int(res.text)
             if num >= 50:
                 context.run_task("活动-运镖-点击日常活动")
                 return CustomRecognition.AnalyzeResult(box=(0,0,0,0),detail="活跃度大于50")
@@ -41,3 +42,11 @@ class OCRNum(CustomRecognition):
                 context.run_task("panduan_zhujiemian")
                 return CustomRecognition.AnalyzeResult(box=(0,0,0,0),detail="活跃度小于50,任务结束")
 
+    def convert_to_int(s):
+        try:
+            num = int(s)
+            logger.info("活跃度为: %s", num)
+            return num
+        except ValueError:
+            logger.info("识别活跃度错误", s)
+            return CustomRecognition.AnalyzeResult(box=(0,0,0,0),detail="识别活跃度错误")
