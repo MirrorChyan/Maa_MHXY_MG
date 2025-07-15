@@ -20,7 +20,7 @@ class OCRNum(CustomRecognition):
             "识别活跃度",
             image1,
             pipeline_override={
-                "识别活跃度":{"roi" : [311,500,917,152],
+                "识别活跃度":{"roi" : [305,586,862,70],
                               "expected":[""],
                               "recognition": "OCR"
                             }
