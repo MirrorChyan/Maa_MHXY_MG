@@ -473,7 +473,7 @@
             325
         ],
         "action": "Click",
-        "post_delay": 4000,
+        "post_delay": 5000,
         "next": [
             "钟馗-捉鬼任务-循环"
         ]
