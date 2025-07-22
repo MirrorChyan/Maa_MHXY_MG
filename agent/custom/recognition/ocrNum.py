@@ -34,9 +34,9 @@ class OCRNum(CustomRecognition):
                 return CustomRecognition.AnalyzeResult(box=(0,0,0,0),detail="没有识别到活跃度")
         for res in recoNum.all_results:
             # num = int(res.text)
+            
             num = OCRNum.convert_to_int(res.text)
             if num >= 50:
-                
                 context.run_task("活动-运镖-点击日常活动")
                 return CustomRecognition.AnalyzeResult(box=(0,0,0,0),detail="活跃度大于50")
             else:

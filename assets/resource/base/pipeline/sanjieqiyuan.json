@@ -167,7 +167,7 @@
     "活动-三界奇缘-进入答题界面": {
         "recognition": "TemplateMatch",
         "template": [
-            "richangdati\\sjqy_datijiemian.png"
+            "richangdati/sjqy_datijiemian.png"
         ],
         "roi": [
             130,
