@@ -751,7 +751,9 @@
     "日常抓鬼-钟馗-捉鬼任务-开始": {
         "recognition": "OCR",
         "expected": [
-            "捉鬼"
+            "捉鬼",
+            "捉鬼(1/10)",
+            "捉鬼（1/10）"
         ],
         "roi": [
             1032,
@@ -763,18 +765,18 @@
         "action": "Click",
         "post_delay": 200,
         "next": [
-            "日常抓鬼-第一轮结束"
+            "日常抓鬼-第一轮结束-图片识别"
         ],
         "interrupt": [
             "自动寻路中-图片识别",
             "战斗中-等待100秒"
         ]
     },
-    "日常抓鬼-第一轮结束": {
+    "日常抓鬼-第一轮结束-图片识别": {
         "recognition": "TemplateMatch",
         "template": [
-            "./zhuagui/zhuaguijiesu.png",
-            "./zhuagui/zhuaguijiesu2.png"
+            "zhuagui/zhuaguijiesu.png",
+            "zhuagui/zhuaguijiesu2.png"
         ],
         "roi": [
             401,
@@ -782,7 +784,22 @@
             475,
             214
         ],
-        "threshold": 0.8,
+        "threshold": 0.7,
+        "next": [
+            "日常抓鬼-第二轮"
+        ]
+    },
+    "日常抓鬼-第一轮结束-文字识别": {
+        "recognition": "OCR",
+        "expected": [
+            "少侠已经捉完1轮鬼，是否继续捉鬼？"
+        ],
+        "roi": [
+            401,
+            254,
+            475,
+            214
+        ],
         "next": [
             "日常抓鬼-第二轮"
         ]
@@ -792,7 +809,13 @@
         "expected": [
             "确定"
         ],
-        "roi": "日常抓鬼-第一轮结束",
+        "roi": [
+            401,
+            254,
+            475,
+            214
+        ],
+        "pre_delay": 2000,
         "action": "Click",
         "post_delay": 4000,
         "next": [
@@ -819,7 +842,9 @@
     "日常抓鬼-第二轮-抓鬼任务-开始": {
         "recognition": "OCR",
         "expected": [
-            "捉鬼"
+            "捉鬼",
+            "捉鬼(1/10)",
+            "捉鬼（1/10）"
         ],
         "roi": [
             1032,
@@ -840,8 +865,8 @@
     "日常抓鬼-第二轮-抓鬼任务-结束": {
         "recognition": "TemplateMatch",
         "template": [
-            "./zhuagui/zhuaguijiesu.png",
-            "./zhuagui/zhuaguijiesu2.png"
+            "zhuagui/zhuaguijiesu.png",
+            "zhuagui/zhuaguijiesu2.png"
         ],
         "roi": [
             401,
